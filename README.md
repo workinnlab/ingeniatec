@@ -20,7 +20,7 @@
 
 El semillero de investigación **INGENIATEC** surge como un espacio de formación extracurricular que promueve la **innovación tecnológica**, el **prototipado de soluciones** y la **experimentación activa** mediante herramientas como la impresión 3D, la electrónica y la robótica.
 
-Somos un grupo de **13 miembros** comprometidos con el desarrollo de soluciones innovadoras que puedan impactar positivamente en la sociedad. A través del aprendizaje colaborativo y la experimentación práctica, transformamos ideas en prototipos funcionales.
+Somos un grupo comprometido con el desarrollo de soluciones innovadoras que puedan impactar positivamente en la sociedad. A través del aprendizaje colaborativo y la experimentación práctica, transformamos ideas en prototipos funcionales.
 
 ### 🎯 Misión
 
@@ -32,9 +32,9 @@ Ser reconocidos como el semillero líder en innovación tecnológica en la regi�
 
 ---
 
-## 🏢 WorkingLab
+## 🏢 WorkinnLab
 
-INGENIATEC está adscrito a **WorkingLab**, el laboratorio de innovación de la Corporación Universitaria Americana. WorkingLab es un ecosistema de innovación donde convergen ideas, tecnologías y talentos, contando con:
+INGENIATEC está adscrito a **WorkinnLab**, el laboratorio de innovación de la Corporación Universitaria Americana. WorkinnLab es un ecosistema de innovación donde convergen ideas, tecnologías y talentos, contando con:
 
 - 🖥️ Equipos especializados de última generación
 - 🤝 Comunidad colaborativa de innovadores
@@ -57,7 +57,6 @@ Prototipado rápido y fabricación aditiva para materializar ideas en objetos ta
 ### 🔌 Electrónica
 Desarrollo de circuitos, sistemas embebidos y dispositivos IoT para automatización.
 - Arduino & ESP32
-- Diseño de PCB
 - Sistemas IoT
 - Sensores y actuadores
 
@@ -71,31 +70,9 @@ Creación de robots autónomos y sistemas mecatrónicos inteligentes.
 ### 💻 Desarrollo de Software
 Creación de aplicaciones con las últimas tecnologías y metodologías ágiles.
 - Aplicaciones Web & Móviles
-- Python & JavaScript
-- Git & DevOps
+- Python
+- desarrollo con IA
 - Metodologías ágiles
-
----
-
-## 👥 Nuestro Equipo
-
-Contamos con un equipo multidisciplinario de **13 miembros**:
-
-| Nombre | Rol |
-|--------|-----|
-| Juan Pérez | Coordinador |
-| María Rodríguez | Líder de Electrónica |
-| Carlos Martínez | Líder de Robótica |
-| Ana López | Líder de Software |
-| David García | Impresión 3D |
-| Laura Sánchez | Desarrolladora |
-| Roberto Díaz | Investigador |
-| Patricia Torres | Diseñadora |
-| Andrés Mendoza | Desarrollador |
-| Valentina Ruiz | Electrónica |
-| Santiago Castro | Robótica |
-| Mariana Vega | Impresión 3D |
-| Felipe Herrera | Innovación |
 
 ---
 
@@ -104,7 +81,7 @@ Contamos con un equipo multidisciplinario de **13 miembros**:
 **Corporación Universitaria Americana**  
 Barranquilla, Colombia
 
-📧 innovatec@americana.edu.co  
+📧 direccioncie@americana.edu.co  
 📞 +57 (605) 123 4567
 
 ---
@@ -113,7 +90,7 @@ Barranquilla, Colombia
 
 - [Sitio Web Corporación](https://www.americana.edu.co)
 - [WorkingLab CUA](#)
-- [GitHub INGENIATEC](#)
+- [GitHub INGENIATEC](#SS)
 - [LinkedIn](#)
 - [Instagram](#)
 

@@ -214,7 +214,7 @@ a {
 }
 
 /* ========================================
-   HERO SECTION - Estilo Ghostty
+   HERO SECTION 
    ======================================== */
 .hero-section {
     width: 100%;
@@ -377,8 +377,8 @@ a {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
-    font-size: 1.35rem;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
     opacity: 0;
     animation: terminalFadeIn 0.5s ease forwards;
 }
@@ -392,7 +392,7 @@ a {
 .terminal-prompt {
     color: var(--accent-pink);
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
 }
 
 .terminal-path {
@@ -406,7 +406,7 @@ a {
 .terminal-output {
     color: #c0c0c0;
     padding-left: 25px;
-    font-size: 1.15rem;
+    font-size: 0.95rem;
 }
 
 .terminal-text {
@@ -414,11 +414,10 @@ a {
 }
 
 .terminal-cursor {
-    width: 12px;
-    height: 28px;
+    width: 10px;
+    height: 20px;
     background: var(--accent-cyan);
     animation: cursorBlink 1s step-end infinite;
-    box-shadow: 0 0 10px var(--accent-cyan);
 }
 
 @keyframes cursorBlink {
@@ -611,6 +610,13 @@ a {
 .success-text {
     color: var(--accent-cyan);
     font-weight: bold;
+}
+
+.terminal-cursor {
+    width: 8px;
+    height: 18px;
+    background: var(--accent-cyan);
+    animation: cursorBlink 1s step-end infinite;
 }
 
 /* Contenido Principal Hero */
@@ -2002,17 +2008,12 @@ section {
     }
 
     .terminal-line {
-        font-size: 1.1rem;
+        font-size: 0.85rem;
         justify-content: center;
     }
 
     .terminal-output {
         padding-left: 20px;
-        font-size: 0.95rem;
-    }
-
-    .terminal-prompt {
-        font-size: 1.2rem;
     }
 
     .terminal-nav-links {
