@@ -370,15 +370,35 @@ a {
 .terminal-text-area {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    height: 100%;
+    max-height: 550px;
+    overflow-y: auto;
+    padding-right: 15px;
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar personalizado para la terminal */
+.terminal-text-area::-webkit-scrollbar {
+    width: 6px;
+}
+.terminal-text-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+.terminal-text-area::-webkit-scrollbar-thumb {
+    background: rgba(34, 211, 238, 0.3);
+    border-radius: 10px;
+}
+.terminal-text-area::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 211, 238, 0.6);
 }
 
 .terminal-line {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 8px;
-    font-size: 1.05rem;
+    margin-bottom: 12px;
+    font-size: 1.4rem;
     opacity: 0;
     animation: terminalFadeIn 0.5s ease forwards;
 }
@@ -392,7 +412,7 @@ a {
 .terminal-prompt {
     color: var(--accent-pink);
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 
 .terminal-path {
@@ -406,7 +426,7 @@ a {
 .terminal-output {
     color: #c0c0c0;
     padding-left: 25px;
-    font-size: 0.95rem;
+    font-size: 1.3rem;
 }
 
 .terminal-text {
@@ -414,8 +434,8 @@ a {
 }
 
 .terminal-cursor {
-    width: 10px;
-    height: 20px;
+    width: 12px;
+    height: 24px;
     background: var(--accent-cyan);
     animation: cursorBlink 1s step-end infinite;
 }
@@ -430,6 +450,20 @@ a {
     50% {
         opacity: 0;
     }
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 1.4rem;
+    width: 100%;
+    caret-color: var(--accent-cyan);
+}
+.terminal-input::selection {
+    background: rgba(92, 124, 250, 0.3);
 }
 
 .mt-3 {
@@ -613,8 +647,8 @@ a {
 }
 
 .terminal-cursor {
-    width: 8px;
-    height: 18px;
+    width: 12px;
+    height: 24px;
     background: var(--accent-cyan);
     animation: cursorBlink 1s step-end infinite;
 }
