@@ -40,10 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 output = `<span class="text-gradient">Comandos disponibles:</span>
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">whoami</span>    - Información del semillero
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">cat</span>       - Muestra el contenido de un archivo (ej: cat areas.txt)
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">ls</span>        - Lista los archivos del directorio actual
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">cd</span>        - Navega a una sección (ej: cd nosotros, cd equipo)
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">clear</span>     - Limpia la terminal
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">date</span>      - Muestra la fecha actual
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">echo</span>      - Repite el texto escrito
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">ping</span>      - Envía paquetes de diagnóstico a la red
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">sudo</span>      - Ejecuta un comando como administrador
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">hack</span>      - Secuencia especial de infiltración
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">matrix</span>    - Despierta y entra a la matrix
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">./iniciar</span> - Ejecuta iniciar_proyecto.sh`;
                 break;
 
