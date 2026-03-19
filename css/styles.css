@@ -452,15 +452,28 @@ a {
     }
 }
 
+.terminal-line .terminal-input,
 .terminal-input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--text-primary);
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: var(--text-primary) !important;
     font-family: inherit;
     font-size: 1.4rem;
     width: 100%;
+    margin: 0;
+    padding: 0;
     caret-color: var(--accent-cyan);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.terminal-line .terminal-input:focus,
+.terminal-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
 }
 .terminal-input::selection {
     background: rgba(92, 124, 250, 0.3);
