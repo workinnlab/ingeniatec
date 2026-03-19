@@ -4,7 +4,7 @@
 
 ![INGENIATEC Banner](https://img.shields.io/badge/INGENIATEC-Innovaci%C3%B3n%20Tecnol%C3%B3gica-5c7cfa?style=for-the-badge)
 
-**Semillero de Investigación adscrito a WorkingLab**  
+**Semillero de Investigación adscrito a WorkInnLab**  
 *Corporación Universitaria Americana - Barranquilla*
 
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.2-7952b3?style=flat&logo=bootstrap)](https://getbootstrap.com/)
@@ -89,7 +89,7 @@ Barranquilla, Colombia
 ## 🔗 Enlaces de Interés
 
 - [Sitio Web Corporación](https://www.americana.edu.co)
-- [WorkingLab CUA](#)
+- [WorkInnLab CUA](#)
 - [GitHub INGENIATEC](#SS)
 - [LinkedIn](#)
 - [Instagram](#)
@@ -149,7 +149,7 @@ web_semilleros/
 3. **Equipo** - Galería de los 13 miembros
 4. **Líneas de Trabajo** - Las 4 áreas de enfoque
 5. **Galería** - Espacio para contenido futuro
-6. **WorkingLab** - Información del laboratorio
+6. **WorkInnLab** - Información del laboratorio
 7. **Contacto** - Formulario y redes sociales
 
 ---

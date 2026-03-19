@@ -349,7 +349,7 @@ console.log(`
 %cCorporación Universitaria Americana - Barranquilla
 
 %c¿Eres desarrollador? ¡Únete a nosotros!
-Visita: workinglab.americana.edu.co
+Visita: workinnlab.americana.edu.co
 
 `,
     'font-size: 20px; font-weight: bold; color: #0d6efd;',

@@ -1470,17 +1470,17 @@ section {
 /* ========================================
    WORKINGLAB SECTION
    ======================================== */
-.workinglab-section {
+.workinnlab-section {
     background: var(--bg-secondary);
 }
 
-.workinglab-image {
+.workinnlab-image {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.workinglab-icon {
+.workinnlab-icon {
     width: 300px;
     height: 300px;
     background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(0, 212, 255, 0.1));
@@ -1494,7 +1494,7 @@ section {
     animation: pulse 3s ease-in-out infinite;
 }
 
-.workinglab-icon i {
+.workinnlab-icon i {
     font-size: 8rem;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
@@ -1518,15 +1518,15 @@ section {
     }
 }
 
-.workinglab-content .lead {
+.workinnlab-content .lead {
     color: #c0c0c0;
 }
 
-.workinglab-content .text-muted {
+.workinnlab-content .text-muted {
     color: #a0a0a0 !important;
 }
 
-.workinglab-features {
+.workinnlab-features {
     margin-top: 2rem;
 }
 
@@ -2102,12 +2102,12 @@ section {
         top: 60%;
     }
 
-    .workinglab-icon {
+    .workinnlab-icon {
         width: 200px;
         height: 200px;
     }
 
-    .workinglab-icon i {
+    .workinnlab-icon i {
         font-size: 5rem;
     }
 }

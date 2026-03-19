@@ -49,6 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">sudo</span>      - Ejecuta un comando como administrador
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">hack</span>      - Secuencia especial de infiltración
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">matrix</span>    - Despierta y entra a la matrix
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">neofetch</span>  - Muestra información del sistema
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">coffee</span>    - Prepara un café virtual
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">42</span>        - La respuesta a todo
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">pwd</span>       - Muestra el directorio de trabajo actual
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">./iniciar</span> - Ejecuta iniciar_proyecto.sh`;
                 break;
 
@@ -70,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
             case './iniciar':
             case './iniciar_proyecto.sh':
-                output = `🚀 Innovando desde WorkingLab - CUA`;
+                output = `🚀 Innovando desde WorkInnLab - CUA`;
                 break;
 
             case 'clear':
@@ -100,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
 
             case 'ping':
-                output = `Haciendo ping a workinglab.americana.edu.co con 32 bytes de datos:<br>
+                output = `Haciendo ping a workinnlab.americana.edu.co con 32 bytes de datos:<br>
 Respuesta desde 192.168.1.100: bytes=32 tiempo=14ms TTL=54<br>
 Respuesta desde 192.168.1.100: bytes=32 tiempo=12ms TTL=54<br>
 Respuesta desde 192.168.1.100: bytes=32 tiempo=13ms TTL=54<br>
@@ -110,7 +114,7 @@ Estadísticas de ping:<br>
 
             case 'hack':
                 let hackOutput = `<span style="color: var(--accent-cyan)">Iniciando secuencia de infiltración...</span><br>`;
-                hackOutput += `[OK] Bypass del firewall de WorkingLab completado.<br>`;
+                hackOutput += `[OK] Bypass del firewall de WorkInnLab completado.<br>`;
                 hackOutput += `[OK] Resolviendo encriptación cuántica...<br>`;
                 hackOutput += `[OK] Descargando planos de robots clasificados...<br>`;
                 hackOutput += `<span style="color: var(--accent-pink)">¡Es broma! 😉 Bienvenido a INGENIATEC. ¡Únete a nosotros para aprender a construir tecnología real!</span>`;
@@ -119,6 +123,62 @@ Estadísticas de ping:<br>
 
             case 'matrix':
                 output = `<span style="color: #28c840;">Wake up, Neo...<br>The Matrix has you...<br>Follow the white rabbit.</span>`;
+                break;
+
+            case 'neofetch':
+                output = `<span style="color: var(--accent-cyan); white-space: pre-wrap;">
+   /\\       OS: IngeniaOS 25.04
+  /  \\      Kernel: Innovación-Core-5.1
+ /____\\     CPU: Mentes Brillantes CUA
+/      \\    RAM: Pasión Ilimitada
+</span>`;
+                break;
+
+            case 'rm':
+                if (command.includes('-rf /')) {
+                    output = `<span style="color: #ff5f57;">¡Whoa, detente ahí! Casi borras todo el servidor del WorkInnLab. Menos mal que le pusimos protección contra novatos. 😅</span>`;
+                } else {
+                    output = `rm: falta operando`;
+                }
+                break;
+
+            case 'make':
+                if (command.includes('me a sandwich')) {
+                    output = `Error: Hazlo tú mismo. O mejor, usa una de nuestras impresoras 3D en el laboratorio para imprimir uno... aunque quizás quede algo duro.`;
+                } else {
+                    output = `make: *** No targets specified and no makefile found.  Stop.`;
+                }
+                break;
+
+            case 'coffee':
+            case 'brew':
+                output = `<span style="color: #febc2e;">Error 418: I'm a teapot (Soy una tetera). Pero te sugiero ir por un buen café a la cafetería para seguir investigando y programando. ☕</span>`;
+                break;
+
+            case 'print':
+                if (cmdParts[1] === '3d') {
+                    output = `Cargando archivo STL...<br>Calentando extrusor a 210°C...<br>Imprimiendo: [=========&gt; ] 90%...<br><span style="color: #ff5f57;">¡Error! Falta filamento PLA. Contacte al equipo del WorkInnLab.</span>`;
+                } else {
+                    output = `Imprimiendo nada. Intenta 'print 3d'.`;
+                }
+                break;
+
+            case '42':
+                output = `<span style="color: var(--primary);">La respuesta a la vida, el universo y todo lo demás. Lo difícil es encontrar la pregunta correcta, ¡para eso investigamos en INGENIATEC!</span>`;
+                break;
+
+            case 'git':
+                if (command.includes('push --force')) {
+                    output = `<span style="color: #ff5f57;">¿Estás seguro de querer sobrescribir el trabajo de todo el equipo de Software? Esperemos que tengas un buen sistema de backups...</span>`;
+                } else if (command.includes('commit') || command.includes('push')) {
+                    output = `[main xyz123] Cambios subidos existosamente a la nube.`;
+                } else {
+                    output = `Uso de git: intenta 'git push --force' bajo tu propio riesgo.`;
+                }
+                break;
+
+            case 'pwd':
+                output = `/home/cua/workinnlab/ingeniatec/construyendo-el-futuro`;
                 break;
 
             case 'cd':
@@ -134,7 +194,7 @@ Estadísticas de ping:<br>
                         output = `cd: ${section}: No such directory or section`;
                     }
                 } else {
-                    output = `cd: falta directorio de destino. Secciones disponibles: nosotros, equipo, lineas, galeria, workinglab, contacto`;
+                    output = `cd: falta directorio de destino. Secciones disponibles: nosotros, equipo, lineas, galeria, workinnlab, contacto`;
                 }
                 break;
 
