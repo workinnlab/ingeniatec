@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INGENIATEC - Semillero de Investigación</title>
+    <meta name="description"
+        content="Semillero de investigación INGENIATEC - Innovación tecnológica, prototipado y experimentación activa">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Orbitron para títulos futuristas -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- Terminal Inmersiva Full-Screen -->
+    <section id="inicio" class="hero-section immersive-terminal-hero">
+        <div class="terminal-container immersive-container">
+            <div class="terminal-window immersive-window">
+                <!-- Cabecera Terminal con Navegación y Logo -->
+                <div class="terminal-header immersive-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn terminal-btn-close"></span>
+                        <span class="terminal-btn terminal-btn-minimize"></span>
+                        <span class="terminal-btn terminal-btn-maximize"></span>
+                    </div>
+
+                    <nav class="terminal-nav-links d-none d-lg-flex">
+                        <a href="#inicio" class="t-nav-link">Inicio</a>
+                        <a href="#nosotros" class="t-nav-link">Nosotros</a>
+                        <a href="#equipo" class="t-nav-link">Equipo</a>
+                        <a href="#lineas" class="t-nav-link">Líneas</a>
+                        <a href="#galeria" class="t-nav-link">Galería</a>
+                        <a href="#workinglab" class="t-nav-link">WorkingLab</a>
+                        <a href="#contacto" class="t-nav-link">Contacto</a>
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn d-lg-none" id="mobileMenuBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <div class="terminal-header-right">
+                        <img src="assets/logotipos/g133282-6.png" alt="Semillero Logo" class="terminal-header-logo">
+                    </div>
+                </div>
+
+                <!-- Cuerpo de la Terminal -->
+                <div class="terminal-body immersive-body">
+                    <!-- Mobile Menu Overlay -->
+                    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+                        <nav class="mobile-menu-nav">
+                            <a href="#inicio" class="mobile-nav-link">Inicio</a>
+                            <a href="#nosotros" class="mobile-nav-link">Nosotros</a>
+                            <a href="#equipo" class="mobile-nav-link">Equipo</a>
+                            <a href="#lineas" class="mobile-nav-link">Líneas</a>
+                            <a href="#galeria" class="mobile-nav-link">Galería</a>
+                            <a href="#workinglab" class="mobile-nav-link">WorkingLab</a>
+                            <a href="#contacto" class="mobile-nav-link">Contacto</a>
+                        </nav>
+                    </div>
+
+                    <div class="terminal-main-content">
+                        <!-- Lado Izquierdo: Comandos de Texto -->
+                        <div class="terminal-text-area">
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">whoami</span>
+                            </div>
+                            <div class="terminal-line terminal-output">
+                                <span class="terminal-text">INGENIATEC - Semillero de Investigación</span>
+                            </div>
+                            <div class="terminal-line mt-3">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">cat areas.txt</span>
+                            </div>
+                            <div class="terminal-line terminal-output">
+                                <span class="terminal-text">[</span><span class="text-gradient">Impresión 3D</span><span
+                                    class="terminal-text">, </span><span class="text-gradient">Electrónica</span><span
+                                    class="terminal-text">, </span><span class="text-gradient">Robótica</span><span
+                                    class="terminal-text">, </span><span class="text-gradient">Software</span><span
+                                    class="terminal-text">]</span>
+                            </div>
+                            <div class="terminal-line mt-3">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">./iniciar_proyecto.sh</span>
+                            </div>
+                            <div class="terminal-line terminal-output">
+                                <span class="terminal-text">🚀 Innovando desde WorkingLab - CUA</span>
+                            </div>
+                            <div class="terminal-line mt-4">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-cursor"></span>
+                            </div>
+                        </div>
+
+                        <!-- Lado Derecho: Asistente Robot -->
+                        <div class="assistant-zone">
+                            <div class="robot-assistant-container">
+                                <div class="assistant-glow"></div>
+                                <div class="assistant-ring"></div>
+                                <img src="assets/logotipos/path302.svg" alt="Robot Assistant" class="robot-assistant">
+                                <div class="assistant-scanline"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#nosotros" class="scroll-indicator-ghostty">
+            <i class="bi bi-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="about-section py-5">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="about-image-wrapper">
+                        <div class="about-image">
+                            <i class="bi bi-motherboard-fill"></i>
+                        </div>
+                        <div class="floating-card card-1">
+                            <i class="bi bi-3d-cube"></i>
+                            <span>Impresión 3D</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="bi bi-cpu"></i>
+                            <span>Electrónica</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="bi bi-robot"></i>
+                            <span>Robótica</span>
+                        </div>
+                        <div class="floating-card card-4">
+                            <i class="bi bi-code-slash"></i>
+                            <span>Software</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <div class="section-badge">
+                            <i class="bi bi-info-circle-fill"></i>
+                            <span>Sobre Nosotros</span>
+                        </div>
+                        <h2 class="section-title">
+                            Formando el <span class="gradient-text">Futuro</span> de la Tecnología
+                        </h2>
+                        <p class="lead text-muted">
+                            El semillero de investigación IngeniaTEC surge como un espacio de formación
+                            extracurricular que promueve la innovación tecnológica.
+                        </p>
+                        <p class="text-muted">
+                            Somos un grupo de estudiantes, investigadores y entusiastas de la tecnología
+                            comprometidos con el desarrollo de soluciones innovadoras. A través de la
+                            experimentación activa y el aprendizaje colaborativo, transformamos ideas
+                            en prototipos funcionales que pueden impactar positivamente en la sociedad.
+                        </p>
+                        <div class="about-stats mt-4">
+                            <div class="row g-3">
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <div class="stat-number">
+                                            <i class="bi bi-people-fill"></i>
+                                            <span class="count" data-target="50">0</span>+
+                                        </div>
+                                        <div class="stat-label">Miembros</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <div class="stat-number">
+                                            <span class="count" data-target="20">0</span>+
+                                        </div>
+                                        <div class="stat-label">Proyectos</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <div class="stat-number">
+                                            <i class="bi bi-trophy-fill"></i>
+                                            <span class="count" data-target="15">0</span>
+                                        </div>
+                                        <div class="stat-label">Reconocimientos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Equipo de Trabajo -->
+    <section id="equipo" class="team-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <div class="section-badge mx-auto">
+                    <i class="bi bi-people-fill"></i>
+                    <span>Nuestro Equipo</span>
+                </div>
+                <h2 class="section-title">
+                    Equipo de <span class="gradient-text">Trabajo</span>
+                </h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    Conoce a los miembros principales del semillero INGENIATEC,
+                    mentes creativas detrás de la innovación.
+                </p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Miembro 1 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assets/team/emanuel.jpg" alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Ing. Emanuel Gutierrez</h4>
+                            <p class="team-role">Coordinador</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 2 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assets/team/eduardo.jpg" alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="https://www.linkedin.com/in/eduardo-pimienta-11494351/"><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a href="https://github.com/epimient"><i class="bi bi-github"></i> </a>
+                                    <a href="https://mail.google.com/mail?hl=pt-BR&utm_source=gmail.com"><i
+                                            class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Ing. Eduardo Pimienta</h4>
+                            <p class="team-role">Coordinador</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 3 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assets/team/melissa.jpg" alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Melissa Iriarte</h4>
+                            <p class="team-role">Líder de Semillero</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 4 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&face=center"
+                                alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Ana López</h4>
+                            <p class="team-role">Líder de Software</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 5 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&face=center"
+                                alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">David García</h4>
+                            <p class="team-role">Impresión 3D</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 6 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&face=center"
+                                alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Laura Sánchez</h4>
+                            <p class="team-role">Desarrolladora</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 7 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&h=400&fit=crop&face=center"
+                                alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Roberto Díaz</h4>
+                            <p class="team-role">Investigador</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 8 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop&face=center"
+                                alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Patricia Torres</h4>
+                            <p class="team-role">Diseñadora</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 9 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&fit=crop&face=center"
+                                alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Andrés Mendoza</h4>
+                            <p class="team-role">Desarrollador</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 10 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop&face=center"
+                                alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Valentina Ruiz</h4>
+                            <p class="team-role">Electrónica</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 11 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=400&h=400&fit=crop&face=center"
+                                alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Santiago Castro</h4>
+                            <p class="team-role">Robótica</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 12 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=400&h=400&fit=crop&face=center"
+                                alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Mariana Vega</h4>
+                            <p class="team-role">Impresión 3D</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 13 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&face=center"
+                                alt="Miembro del equipo">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-github"></i></a>
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Felipe Herrera</h4>
+                            <p class="team-role">Innovación</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Líneas de Trabajo -->
+    <section id="lineas" class="lines-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <div class="section-badge mx-auto">
+                    <i class="bi bi-grid-3x3-gap-fill"></i>
+                    <span>Áreas de Enfoque</span>
+                </div>
+                <h2 class="section-title">
+                    Líneas de <span class="gradient-text">Trabajo</span>
+                </h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    Exploramos múltiples disciplinas tecnológicas para desarrollar soluciones
+                    integrales e innovadoras.
+                </p>
+            </div>
+            <div class="row g-4">
+                <!-- Impresión 3D -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="line-card">
+                        <div class="line-icon">
+                            <i class="bi bi-3d-cube"></i>
+                        </div>
+                        <h3 class="line-title">Impresión 3D</h3>
+                        <p class="line-description">
+                            Prototipado rápido y fabricación aditiva para materializar ideas
+                            en objetos tangibles. Desde modelado CAD hasta impresión final.
+                        </p>
+                        <ul class="line-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Modelado 3D</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Prototipado rápido</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Diseño de piezas</li>
+                        </ul>
+                        <a href="#contacto" class="line-link">
+                            Saber más <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Electrónica -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="line-card">
+                        <div class="line-icon">
+                            <i class="bi bi-cpu-fill"></i>
+                        </div>
+                        <h3 class="line-title">Electrónica</h3>
+                        <p class="line-description">
+                            Desarrollo de circuitos, sistemas embebidos y dispositivos IoT
+                            para automatización y control de procesos.
+                        </p>
+                        <ul class="line-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Arduino & ESP32</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Diseño de PCB</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sistemas IoT</li>
+                        </ul>
+                        <a href="#contacto" class="line-link">
+                            Saber más <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Robótica -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="line-card">
+                        <div class="line-icon">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <h3 class="line-title">Robótica</h3>
+                        <p class="line-description">
+                            Creación de robots autónomos y sistemas mecatrónicos
+                            que interactúan con el entorno de manera inteligente.
+                        </p>
+                        <ul class="line-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Robótica móvil</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Automatización</li>
+                            <li><i class="bi bi-check-circle-fill"></i> IA embebida</li>
+                        </ul>
+                        <a href="#contacto" class="line-link">
+                            Saber más <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Desarrollo de Software -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="line-card">
+                        <div class="line-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <h3 class="line-title">Desarrollo de Software</h3>
+                        <p class="line-description">
+                            Creación de aplicaciones web, móviles y de escritorio
+                            con las últimas tecnologías y metodologías ágiles.
+                        </p>
+                        <ul class="line-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Apps Web & Móviles</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Python & JavaScript</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Git & DevOps</li>
+                        </ul>
+                        <a href="#contacto" class="line-link">
+                            Saber más <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Galería (Próximamente) -->
+    <section id="galeria" class="gallery-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <div class="section-badge mx-auto">
+                    <i class="bi bi-images"></i>
+                    <span>Próximamente</span>
+                </div>
+                <h2 class="section-title">
+                    Nuestra <span class="gradient-text">Galería</span>
+                </h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    Estamos trabajando en esta sección. Pronto podrás ver fotos de nuestros
+                    proyectos, eventos y actividades en el semillero.
+                </p>
+            </div>
+            <div class="gallery-placeholder">
+                <div class="gallery-icon">
+                    <i class="bi bi-camera-fill"></i>
+                </div>
+                <h3>¡Próximamente!</h3>
+                <p>Una galería interactiva con lo mejor de INGENIATEC está en camino</p>
+                <div class="gallery-coming-soon">
+                    <div class="gallery-item-placeholder">
+                        <i class="bi bi-image"></i>
+                    </div>
+                    <div class="gallery-item-placeholder">
+                        <i class="bi bi-image"></i>
+                    </div>
+                    <div class="gallery-item-placeholder">
+                        <i class="bi bi-image"></i>
+                    </div>
+                    <div class="gallery-item-placeholder">
+                        <i class="bi bi-image"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección WorkingLab -->
+    <section id="workinglab" class="workinglab-section py-5">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="workinglab-image">
+                        <div class="workinglab-icon">
+                            <i class="bi bi-buildings"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="workinglab-content">
+                        <div class="section-badge">
+                            <i class="bi bi-buildings-fill"></i>
+                            <span>WorkingLab</span>
+                        </div>
+                        <h2 class="section-title">
+                            Nuestro <span class="gradient-text">Espacio</span> de Innovación
+                        </h2>
+                        <p class="lead text-muted">
+                            El semillero INGENIATEC está adscrito a WorkingLab, el laboratorio
+                            de innovación de la Corporación Universitaria Americana.
+                        </p>
+                        <p class="text-muted">
+                            WorkingLab es un ecosistema de innovación donde convergen ideas,
+                            tecnologías y talentos. Contamos con equipos de última generación,
+                            espacios colaborativos y el respaldo institucional para llevar
+                            tus proyectos al siguiente nivel.
+                        </p>
+                        <div class="workinglab-features mt-4">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="feature-item">
+                                        <i class="bi bi-pc-display"></i>
+                                        <span>Equipos especializados</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="feature-item">
+                                        <i class="bi bi-people"></i>
+                                        <span>Comunidad colaborativa</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="feature-item">
+                                        <i class="bi bi-lightning-charge"></i>
+                                        <span>Recursos tecnológicos</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="feature-item">
+                                        <i class="bi bi-award"></i>
+                                        <span>Respaldo institucional</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA -->
+    <section class="cta-section py-5">
+        <div class="container py-5">
+            <div class="cta-card">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <h2 class="cta-title">
+                            <i class="bi bi-rocket-takeoff-fill me-3"></i>
+                            ¿Listo para innovar?
+                        </h2>
+                        <p class="cta-text mb-0">
+                            Únete al semillero INGENIATEC y sé parte de la revolución tecnológica
+                            en la Corporación Universitaria Americana.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="#contacto" class="btn btn-primary btn-glow btn-lg">
+                            <i class="bi bi-person-plus-fill me-2"></i>Unirse Ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contact-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <div class="section-badge mx-auto">
+                    <i class="bi bi-envelope-fill"></i>
+                    <span>Contacto</span>
+                </div>
+                <h2 class="section-title">
+                    Contáctanos
+                </h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    ¿Tienes preguntas o quieres unirte? Escríbenos y te responderemos lo antes posible.
+                </p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-5">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Ubicación</h4>
+                                <p>Corporación Universitaria Americana<br>Barranquilla, Colombia</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>direccioncie@americana.edu.co</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Teléfono</h4>
+                                <p>+57 (605) 123 4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-social mt-4">
+                            <h4 class="mb-3">Síguenos</h4>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre completo"
+                                    required>
+                                <label for="nombre"><i class="bi bi-person-fill me-2"></i>Nombre completo</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" placeholder="Correo electrónico"
+                                    required>
+                                <label for="email"><i class="bi bi-envelope-fill me-2"></i>Correo electrónico</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="asunto" placeholder="Asunto" required>
+                                <label for="asunto"><i class="bi bi-tag-fill me-2"></i>Asunto</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <textarea class="form-control" id="mensaje" placeholder="Mensaje" rows="5"
+                                    required></textarea>
+                                <label for="mensaje"><i class="bi bi-chat-left-text-fill me-2"></i>Mensaje</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-glow w-100">
+                                <i class="bi bi-send-fill me-2"></i>Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <a href="#" class="footer-logo">
+                            <img src="assets/logotipos/path1381sqsdasd3.png" alt="INGENIATEC Logo"
+                                class="footer-logo-img">
+                        </a>
+                        <p class="footer-description">
+                            Semillero de investigación IngeniaTEC - Innovación tecnológica,
+                            prototipado y experimentación activa.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Enlaces</h5>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#equipo">Equipo</a></li>
+                        <li><a href="#lineas">Líneas</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Recursos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentación</a></li>
+                        <li><a href="#">Proyectos</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Corporación</h5>
+                    <ul class="footer-links">
+                        <li><a href="https://www.americana.edu.co" target="_blank">Sitio Web</a></li>
+                        <li><a href="#">WorkingLab</a></li>
+                        <li><a href="#">Investigación</a></li>
+                        <li><a href="#">Admisiones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider my-4">
+            <div class="row align-items-center g-3">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="footer-copyright mb-0">
+                        © 2025 INGENIATEC - Corporación Universitaria Americana
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="footer-credit mb-0">
+                        Diseñado con <i class="bi bi-heart-fill text-danger"></i> por el equipo INGENIATEC
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón scroll to top -->
+    <button class="scroll-to-top" id="scrollTop" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script personalizado -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

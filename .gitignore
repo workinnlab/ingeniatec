@@ -1,0 +1,31 @@
+# Archivos temporales
+*.tmp
+*.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Node modules (si se usa npm en el futuro)
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+
+# Backup files
+*.bak
+*.backup
