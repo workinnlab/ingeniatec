@@ -91,6 +91,7 @@ Barranquilla, Colombia
 - [Sitio Web Corporación](https://www.americana.edu.co)
 - [WorkInnLab CUA](#)
 - [GitHub INGENIATEC](#SS)
+- [Guía de Comandos de la Terminal](terminal_commands.md)
 - [LinkedIn](#)
 - [Instagram](#)
 
@@ -133,6 +134,7 @@ El sitio web oficial de INGENIATEC fue desarrollado con un enfoque **moderno, fu
 ```
 web_semilleros/
 ├── index.html          # Página principal
+├── terminal_commands.md # Guía de comandos de la terminal
 ├── css/
 │   └── styles.css      # Estilos personalizados (2200+ líneas)
 ├── js/
