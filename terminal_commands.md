@@ -8,45 +8,44 @@ Estos comandos aparecen al escribir `help` en la terminal.
 
 | Comando | Descripción | Respuesta / Acción |
 | :--- | :--- | :--- |
-| `help` | Muestra los comandos disponibles | Lista formateada de comandos básicos. |
+| `help` | Muestra los comandos disponibles | Lista formateada de comandos. |
 | `whoami` | Información del semillero | `INGENIATEC - Semillero de Investigación` |
 | `ls` | Lista los archivos actuales | `areas.txt`, `iniciar_proyecto.sh`, `secreto.txt` |
-| `cat [archivo]` | Lee un archivo | Depende del archivo (ver sección de archivos). |
-| `cd [sección]` | Navega por la web | Te desplaza visualmente a la sección (ej. `cd nosotros`). |
-| `clear` | Limpia la pantalla | Borra el historial visible de la terminal. |
-| `date` | Fecha actual | Muestra la fecha y hora del sistema. |
-| `echo [texto]` | Repetir texto | Muestra el texto que escribas después del comando. |
-| `pwd` | Directorio actual | `/home/cua/workinnlab/ingeniatec/construyendo-el-futuro` |
-| `./iniciar` | Ejecutar script | `🚀 Innovando desde WorkInnLab - CUA` |
+| `cat [archivo]` | Lee un archivo | Depende del archivo. Soporta `areas.txt` con estilo visual. |
+| `cd [sección]` | Navega por la web | Ej: `cd nosotros`, `cd equipo`, `cd galeria`. |
+| `clear` | Limpia la pantalla | Borra el historial visible. |
+| `reboot` | Reinicia el sistema | Limpia todo y restaura el estado inicial del terminal. |
+| `credits` | Créditos del sitio | Muestra el `SYSTEM_AUTHORS_SPEC` (Ing. Eduardo Pimienta). |
 
 ---
 
-## Comandos Especiales y Ocultos (Easter Eggs)
+## 🔥 Comandos de Programador y Easter Eggs
 
-¡Estos comandos no aparecen en la ayuda general pero funcionan!
+Estos comandos son para los curiosos y entusiastas del software.
 
-| Comando | Tema | Respuesta / Efecto |
+| Comando | Acción / Efecto | Nota |
 | :--- | :--- | :--- |
-| `hack` | Bromas | Inicia una "secuencia de infiltración" falsa y divertida. |
-| `matrix` | Cine | Muestra el mensaje icónico de Neo y el conejo blanco. |
-| `neofetch` | Sistema | Muestra el logo de IngeniaOS en arte ASCII con specs del sistema. |
-| `coffee` / `brew` | Humor | `Error 418: I'm a teapot` (Referencia al protocolo HTCPCP). |
-| `42` | Cultura | La respuesta a la vida, el universo y todo lo demás. |
-| `ping` | Red | Simula una prueba de latencia al servidor de WorkInnLab. |
-| `sudo` | Seguridad | Rechaza el acceso con un mensaje de "incidente reportado". |
-
+| `1337` | **Modo Hacker** | Activa/Desactiva el tema verde neón (Toggle). |
+| `npm install love` | Easter Egg | Un mensaje especial sobre el semillero. ❤️ |
+| `vim` | Humor | El clásico dilema de cómo salir del editor. |
+| `hack` | Infiltración | Inicia una secuencia de "hackeo" visual. |
+| `matrix` | Cine | Muestra el mensaje del conejo blanco de Matrix. |
+| `neofetch` | Intro | Info del sistema con arte ASCII de IngeniaOS. |
+| `beer` | Seguridad | Advertencia sobre líquidos cerca del hardware. |
+| `coffee` | Humor | Referencia al error 418 (I'm a teapot). |
+| `42` | Cultura | La respuesta definitiva al universo. |
+| `sudo` | Admin | Intento fallido de acceso root. |
 
 ---
 
-## Comandos Avanzados y de Programador
+## 🛠️ Comandos de Consola Avanzados
 
 | Comando | Sub-comando | Respuesta / Efecto |
 | :--- | :--- | :--- |
-| `rm` | `-rf /` | Evita el borrado masivo con un mensaje de advertencia gracioso. |
-| `make` | `me a sandwich` | Te dice que te lo hagas tú o uses la impresora 3D. |
-| `git` | `push --force` | Te advierte sobre el peligro de sobrescribir el trabajo del equipo. |
-| `git` | `commit` / `push` | Simula una subida de cambios exitosa a la nube. |
-| `print` | `3d` | Inicia una simulación de impresión que falla por falta de filamento. |
+| `rm` | `-rf /` | Mensaje de advertencia gracioso sobre borrado. |
+| `make` | `me a sandwich` | Una respuesta de xkcd sobre sudo. |
+| `git` | `push --force` | Advertencia sobre el trabajo en equipo. |
+| `print` | `3d` | Simulación de fallo por falta de filamento. |
 
 ---
 

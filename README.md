@@ -123,11 +123,11 @@ El sitio web oficial de INGENIATEC fue desarrollado con un enfoque **moderno, fu
 ### Características del Diseño
 
 - 🎨 **Modo oscuro único** - Optimizado para visualización nocturna
-- 🖥️ **Hero terminal estilo Ghostty** - Pantalla completa con terminal interactiva
+- 🖥️ **Hero terminal interactiva** - Con prompt `user@host:~$` y comandos para explorar el semillero.
 - 🤖 **Robot asistente animado** - Elemento visual protagonista con animaciones CSS
 - 📱 **100% Responsive** - Adaptable a todos los dispositivos
-- ⚡ **Animaciones fluidas** - Transiciones y efectos visuales modernos
-- 🎯 **Navegación intuitiva** - Menú fijo con scroll suave
+- ⚡ **Animaciones fluidas** - Transiciones y efectos visuales modernos (incluyendo Modo Hacker `1337`)
+- 🎯 **Navegación intuitiva** - Menú fijo con scroll suave y comandos `cd`
 
 ### Estructura del Proyecto
 
