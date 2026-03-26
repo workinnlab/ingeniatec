@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">vim</span>       - Intenta salir de este editor
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">neofetch</span>  - Información del sistema
 <br>&nbsp;&nbsp;<span class="text-gradient-primary">hack</span>      - Secuencia especial de infiltración
-<br>&nbsp;&nbsp;<span class="text-gradient-primary">matrix</span>    - Despierta y entra a la matrix`;
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">matrix</span>    - Despierta y entra a la matrix
+<br>&nbsp;&nbsp;<span class="text-gradient-primary">join</span>      - ¡Únete al semillero IngeniaTEC! (Inscripciones)`;
                 break;
 
             case 'whoami':
@@ -173,6 +174,15 @@ Estadísticas de ping:<br>
                 } else {
                     output = `Uso de git: intenta 'git push --force' bajo tu propio riesgo.`;
                 }
+                break;
+
+            case 'join':
+            case 'registrar':
+            case 'inscripcion':
+                output = `<span style="color: var(--accent-cyan)">¡Estamos buscando mentes brillantes como la tuya!</span><br>
+Para unirte a INGENIATEC, completa el formulario de inscripción en el siguiente enlace:<br>
+<a href="https://forms.gle/kdggGbmwWnXjXnQM6" target="_blank" class="text-gradient-primary" style="text-decoration: underline; font-weight: bold;">https://forms.gle/kdggGbmwWnXjXnQM6</a><br>
+<span style="color: var(--accent-pink)">¡Esperamos verte pronto en el WorkInnLab! 🚀</span>`;
                 break;
 
             case 'pwd':

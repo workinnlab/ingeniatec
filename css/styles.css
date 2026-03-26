@@ -529,6 +529,42 @@ a {
     width: 100%;
 }
 
+/* CTA Highlight Button */
+.nav-btn-cta {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--primary)) !important;
+    color: white !important;
+    padding: 8px 18px !important;
+    border-radius: 50px;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+    margin-left: 15px;
+    transition: all 0.3s ease !important;
+}
+
+.nav-btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.5);
+    filter: brightness(1.1);
+}
+
+.nav-btn-cta::after {
+    display: none !important;
+}
+
+/* Media Query Nav overrides for smaller screens if needed */
+@media (max-width: 991px) {
+    .mobile-nav-cta {
+        background: linear-gradient(135deg, var(--accent-cyan), var(--primary)) !important;
+        color: white !important;
+        margin-top: 15px !important;
+        border-radius: 12px;
+        text-align: center;
+        padding: 12px !important;
+        font-weight: 700;
+        display: block;
+    }
+}
+
 .terminal-line {
     display: flex;
     align-items: center;
