@@ -17,32 +17,36 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
     <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 
 <body>
 
     <!-- Terminal Inmersiva Full-Screen -->
     <section id="inicio" class="hero-section immersive-terminal-hero">
+
+        <!-- Navegación en la parte SUPERIOR (estilo Ghostty / Moderno) -->
+        <div class="hero-top-nav-container">
+            <nav class="hero-nav-links">
+                <a href="#inicio" class="hero-nav-link">Inicio</a>
+                <a href="#nosotros" class="hero-nav-link">Nosotros</a>
+                <a href="#equipo" class="hero-nav-link">Equipo</a>
+                <a href="#lineas" class="hero-nav-link">Líneas</a>
+                <a href="#galeria" class="hero-nav-link">Galería</a>
+                <a href="#workinnlab" class="hero-nav-link">WorkInnLab</a>
+                <a href="#contacto" class="hero-nav-link">Contacto</a>
+            </nav>
+        </div>
+
         <div class="terminal-container immersive-container">
             <div class="terminal-window immersive-window">
-                <!-- Cabecera Terminal con Navegación y Logo -->
+                <!-- Cabecera Terminal con Logo -->
                 <div class="terminal-header immersive-header">
                     <div class="terminal-buttons">
                         <span class="terminal-btn terminal-btn-close"></span>
                         <span class="terminal-btn terminal-btn-minimize"></span>
                         <span class="terminal-btn terminal-btn-maximize"></span>
                     </div>
-
-                    <nav class="terminal-nav-links d-none d-lg-flex">
-                        <a href="#inicio" class="t-nav-link">Inicio</a>
-                        <a href="#nosotros" class="t-nav-link">Nosotros</a>
-                        <a href="#equipo" class="t-nav-link">Equipo</a>
-                        <a href="#lineas" class="t-nav-link">Líneas</a>
-                        <a href="#galeria" class="t-nav-link">Galería</a>
-                        <a href="#workinnlab" class="t-nav-link">WorkInnLab</a>
-                        <a href="#contacto" class="t-nav-link">Contacto</a>
-                    </nav>
 
                     <div class="terminal-header-right">
                         <img src="assets/logotipos/g133282-6.png" alt="Semillero Logo" class="terminal-header-logo">
@@ -58,6 +62,11 @@
 
                 <!-- Cuerpo de la Terminal -->
                 <div class="terminal-body immersive-body">
+                    <!-- Robot Logo de fondo animado -->
+                    <div class="terminal-bg-logo">
+                        <img src="assets/logotipos/path302.svg" alt="" class="terminal-bg-logo-img" aria-hidden="true">
+                    </div>
+
                     <!-- Mobile Menu Overlay -->
                     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
                         <nav class="mobile-menu-nav">
@@ -72,7 +81,6 @@
                     </div>
 
                     <div class="terminal-main-content">
-                        <!-- Lado Izquierdo: Comandos de Texto -->
                         <div class="terminal-text-area" id="terminal-history">
                             <div class="terminal-line">
                                 <span class="terminal-prompt">user@host:~$</span>
@@ -103,16 +111,6 @@
                                 <span class="terminal-prompt">user@host:~$</span>
                                 <input type="text" id="terminal-input" class="terminal-input" autocomplete="off"
                                     spellcheck="false">
-                            </div>
-                        </div>
-
-                        <!-- Lado Derecho: Asistente Robot -->
-                        <div class="assistant-zone">
-                            <div class="robot-assistant-container">
-                                <div class="assistant-glow"></div>
-                                <div class="assistant-ring"></div>
-                                <img src="assets/logotipos/path302.svg" alt="Robot Assistant" class="robot-assistant">
-                                <div class="assistant-scanline"></div>
                             </div>
                         </div>
                     </div>
@@ -163,7 +161,7 @@
                             Formando el <span class="gradient-text">Futuro</span> de la Tecnología
                         </h2>
                         <p class="lead text-muted">
-                            El semillero de investigación IngeniaTEC surge como un espacio de formación
+                            El semillero de innovación IngeniaTEC surge como un espacio de formación
                             extracurricular que promueve la innovación tecnológica.
                         </p>
                         <p class="text-muted">
@@ -178,26 +176,26 @@
                                     <div class="stat-item">
                                         <div class="stat-number">
                                             <i class="bi bi-people-fill"></i>
-                                            <span class="count" data-target="50">0</span>+
+                                            <span class="count" data-target="13">0</span>
                                         </div>
-                                        <div class="stat-label">Miembros</div>
+                                        <div class="stat-label">Miembros Activos</div>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="stat-item">
                                         <div class="stat-number">
-                                            <span class="count" data-target="20">0</span>+
+                                            <span class="count" data-target="5">0</span>
                                         </div>
-                                        <div class="stat-label">Proyectos</div>
+                                        <div class="stat-label">Proyectos en Desarrollo</div>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="stat-item">
                                         <div class="stat-number">
-                                            <i class="bi bi-trophy-fill"></i>
-                                            <span class="count" data-target="15">0</span>
+                                            <i class="bi bi-gear-fill"></i>
+                                            <span class="count" data-target="4">0</span>
                                         </div>
-                                        <div class="stat-label">Reconocimientos</div>
+                                        <div class="stat-label">Líneas de Investigación</div>
                                     </div>
                                 </div>
                             </div>
@@ -254,8 +252,7 @@
                                     <a href="https://www.linkedin.com/in/eduardo-pimienta-11494351/"><i
                                             class="bi bi-linkedin"></i></a>
                                     <a href="https://github.com/epimient"><i class="bi bi-github"></i> </a>
-                                    <a href="https://mail.google.com/mail?hl=pt-BR&utm_source=gmail.com"><i
-                                            class="bi bi-envelope"></i></a>
+                                    <a href="eduardopimienta@americana.edu.co"><i class="bi bi-envelope"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -272,9 +269,9 @@
                             <img src="assets/team/melissa.jpg" alt="Miembro del equipo">
                             <div class="team-overlay">
                                 <div class="team-social">
-                                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                                    <a href="#"><i class="bi bi-github"></i></a>
-                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a href="www.linkedin.com/in/meliriarte"><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://github.com/Meliriarte"><i class="bi bi-github"></i></a>
+                                    <a href="melissa_iriarte6037@americana.edu.co"><i class="bi bi-envelope"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -288,19 +285,19 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-card">
                         <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&face=center"
-                                alt="Miembro del equipo">
+                            <img src="/assets/team/jhonatan.jpg" alt="Miembro del equipo">
                             <div class="team-overlay">
                                 <div class="team-social">
-                                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                                    <a href="#"><i class="bi bi-github"></i></a>
-                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a href="http://linkedin.com/in/jhonatan-montalvo-663086177 "><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a href="https://github.com/monty0512 "><i class="bi bi-github"></i></a>
+                                    <a href="jhonatan_montalvo5853@americana.edu.co"><i class="bi bi-envelope"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="team-info">
-                            <h4 class="team-name">Ana López</h4>
-                            <p class="team-role">Líder de Software</p>
+                            <h4 class="team-name">Jhonatan Montalvo</h4>
+                            <p class="team-role">Desarrollador</p>
                         </div>
                     </div>
                 </div>
@@ -308,19 +305,20 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-card">
                         <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&face=center"
-                                alt="Miembro del equipo">
+                            <img src="/assets/team/maria.jpg" alt="Miembro del equipo">
                             <div class="team-overlay">
                                 <div class="team-social">
-                                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                                    <a href="#"><i class="bi bi-github"></i></a>
-                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a
+                                        href="https://www.linkedin.com/in/maria-guerra-649001305?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a href="https://github.com/mdmguerra"><i class="bi bi-github"></i></a>
+                                    <a href="maria_guerra8928@americana.edu.co"><i class="bi bi-envelope"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="team-info">
-                            <h4 class="team-name">David García</h4>
-                            <p class="team-role">Impresión 3D</p>
+                            <h4 class="team-name">María Guerra</h4>
+                            <p class="team-role">Desarrolladora</p>
                         </div>
                     </div>
                 </div>
@@ -328,19 +326,20 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-card">
                         <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&face=center"
-                                alt="Miembro del equipo">
+                            <img src="/assets/team/gerals.jpg" alt="Miembro del equipo">
                             <div class="team-overlay">
                                 <div class="team-social">
-                                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                                    <a href="#"><i class="bi bi-github"></i></a>
-                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a
+                                        href="https://www.linkedin.com/in/gerals-sarmiento-930868355?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a href="https://github.com/lkennenl"><i class="bi bi-github"></i></a>
+                                    <a href="geralssarmiento@americana.edu.co"><i class="bi bi-envelope"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="team-info">
-                            <h4 class="team-name">Laura Sánchez</h4>
-                            <p class="team-role">Desarrolladora</p>
+                            <h4 class="team-name">Gerals Sarmiento</h4>
+                            <p class="team-role">Desarrollador</p>
                         </div>
                     </div>
                 </div>
@@ -348,19 +347,20 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-card">
                         <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&h=400&fit=crop&face=center"
-                                alt="Miembro del equipo">
+                            <img src="/assets/team/luis.jpg" alt="Miembro del equipo">
                             <div class="team-overlay">
                                 <div class="team-social">
-                                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                                    <a href="#"><i class="bi bi-github"></i></a>
-                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a
+                                        href="https://www.linkedin.com/in/luis-camilo-barbosa-lopez-05123531b?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a href="https://github.com/Enryuuh"><i class="bi bi-github"></i></a>
+                                    <a href="luisbarbosa@americana.edu.co"><i class="bi bi-envelope"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="team-info">
-                            <h4 class="team-name">Roberto Díaz</h4>
-                            <p class="team-role">Investigador</p>
+                            <h4 class="team-name">Luis Barbosa</h4>
+                            <p class="team-role">Desarrollador</p>
                         </div>
                     </div>
                 </div>
@@ -368,19 +368,20 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-card">
                         <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop&face=center"
-                                alt="Miembro del equipo">
+                            <img src="/assets/team/johan.jpg" alt="Miembro del equipo">
                             <div class="team-overlay">
                                 <div class="team-social">
-                                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                                    <a href="#"><i class="bi bi-github"></i></a>
-                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a
+                                        href="https://www.linkedin.com/in/johan-borrero-6342173ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a href="https://github.com/jab16jy"><i class="bi bi-github"></i></a>
+                                    <a href="johanborrero@americana.edu.co"><i class="bi bi-envelope"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="team-info">
-                            <h4 class="team-name">Patricia Torres</h4>
-                            <p class="team-role">Diseñadora</p>
+                            <h4 class="team-name">Johan Borrero</h4>
+                            <p class="team-role">Desarrollador</p>
                         </div>
                     </div>
                 </div>
@@ -388,19 +389,18 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-card">
                         <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&fit=crop&face=center"
-                                alt="Miembro del equipo">
+                            <img src="/assets/team/aaron.jpg" alt="Miembro del equipo">
                             <div class="team-overlay">
                                 <div class="team-social">
                                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                                    <a href="#"><i class="bi bi-github"></i></a>
-                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a href="https://github.com/aaron110906"><i class="bi bi-github"></i></a>
+                                    <a href="arlevimedina@gmail.com"><i class="bi bi-envelope"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="team-info">
-                            <h4 class="team-name">Andrés Mendoza</h4>
-                            <p class="team-role">Desarrollador</p>
+                            <h4 class="team-name">Aaron Medina</h4>
+                            <p class="team-role">Electrónica</p>
                         </div>
                     </div>
                 </div>
@@ -408,8 +408,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-card">
                         <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop&face=center"
-                                alt="Miembro del equipo">
+                            <img src="/assets/team/fredi.jpg" alt="Miembro del equipo">
                             <div class="team-overlay">
                                 <div class="team-social">
                                     <a href="#"><i class="bi bi-linkedin"></i></a>
@@ -419,8 +418,8 @@
                             </div>
                         </div>
                         <div class="team-info">
-                            <h4 class="team-name">Valentina Ruiz</h4>
-                            <p class="team-role">Electrónica</p>
+                            <h4 class="team-name">Fredi Diaz</h4>
+                            <p class="team-role">Desarrollador</p>
                         </div>
                     </div>
                 </div>
@@ -432,9 +431,10 @@
                                 alt="Miembro del equipo">
                             <div class="team-overlay">
                                 <div class="team-social">
-                                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                                    <a href="#"><i class="bi bi-github"></i></a>
-                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a href="https://www.linkedin.com/in/fredi-díaz-cardona-a98177373"><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a href="https://github.com/fredidiaz17"><i class="bi bi-github"></i></a>
+                                    <a href="fredidiaz@americana.edu.co"><i class="bi bi-envelope"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -599,34 +599,48 @@
             <div class="text-center mb-5">
                 <div class="section-badge mx-auto">
                     <i class="bi bi-images"></i>
-                    <span>Próximamente</span>
+                    <span>Nuestras Actividades</span>
                 </div>
                 <h2 class="section-title">
-                    Nuestra <span class="gradient-text">Galería</span>
+                    Galería de <span class="gradient-text">Proyectos</span>
                 </h2>
                 <p class="text-muted mx-auto" style="max-width: 600px;">
-                    Estamos trabajando en esta sección. Pronto podrás ver fotos de nuestros
-                    proyectos, eventos y actividades en el semillero.
+                    Explora el día a día en nuestro semillero: desde sesiones de ideación y
+                    talleres prácticos hasta el desarrollo de prototipos funcionales y proyectos
+                    de alto impacto.
                 </p>
             </div>
-            <div class="gallery-placeholder">
-                <div class="gallery-icon">
-                    <i class="bi bi-camera-fill"></i>
+            <div class="gallery-grid">
+                <!-- Imagen 1: Reunión -->
+                <div class="gallery-item">
+                    <img src="assets/galeria/reunion1.jpg" alt="Reunión de Semillero IngeniaTEC">
+                    <div class="gallery-item-info">
+                        <h4>Reunión de Planeación</h4>
+                        <p>Equipo IngeniaTEC trabajando en nuevos prototipos.</p>
+                    </div>
                 </div>
-                <h3>¡Próximamente!</h3>
-                <p>Una galería interactiva con lo mejor de INGENIATEC está en camino</p>
-                <div class="gallery-coming-soon">
-                    <div class="gallery-item-placeholder">
-                        <i class="bi bi-image"></i>
+                <!-- Imagen 2: Robótica -->
+                <div class="gallery-item">
+                    <img src="assets/galeria/robotica.png" alt="Taller de Robótica">
+                    <div class="gallery-item-info">
+                        <h4>Taller de Robótica</h4>
+                        <p>Desarrollo de sistemas autónomos con Arduino y ESP32.</p>
                     </div>
-                    <div class="gallery-item-placeholder">
-                        <i class="bi bi-image"></i>
+                </div>
+                <!-- Imagen 3: Impresión 3D -->
+                <div class="gallery-item">
+                    <img src="assets/galeria/impresion3d.png" alt="Laboratorio de Impresión 3D">
+                    <div class="gallery-item-info">
+                        <h4>Prototipado 3D</h4>
+                        <p>Fabricación aditiva de piezas mecánicas complejas.</p>
                     </div>
-                    <div class="gallery-item-placeholder">
-                        <i class="bi bi-image"></i>
-                    </div>
-                    <div class="gallery-item-placeholder">
-                        <i class="bi bi-image"></i>
+                </div>
+                <!-- Imagen 4: Software -->
+                <div class="gallery-item">
+                    <img src="assets/galeria/software.png" alt="Desarrollo de Software">
+                    <div class="gallery-item-info">
+                        <h4>Desarrollo de Software</h4>
+                        <p>Creación de aplicaciones y algoritmos innovadores.</p>
                     </div>
                 </div>
             </div>
