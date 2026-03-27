@@ -735,7 +735,7 @@
                         </p>
                     </div>
                     <div class="col-lg-4 text-lg-end">
-                        <a href="#contacto" class="btn btn-primary btn-glow btn-lg">
+                        <a href="https://forms.gle/kdggGbmwWnXjXnQM6" class="btn btn-primary btn-glow btn-lg">
                             <i class="bi bi-person-plus-fill me-2"></i>Unirse Ahora
                         </a>
                     </div>
@@ -814,29 +814,36 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="contact-form-wrapper">
+                        <div data-fs-success class="alert alert-success d-none mb-3"></div>
+                        <div data-fs-error class="alert alert-danger d-none mb-3"></div>
+
                         <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqegarzw"
                             method="POST">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="nombre" name="nombre"
-                                    placeholder="Nombre completo" required>
+                                    placeholder="Nombre completo" data-fs-field required>
                                 <label for="nombre"><i class="bi bi-person-fill me-2"></i>Nombre completo</label>
+                                <span data-fs-error="nombre" class="text-danger small"></span>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Correo electrónico" required>
+                                    placeholder="Correo electrónico" data-fs-field required>
                                 <label for="email"><i class="bi bi-envelope-fill me-2"></i>Correo electrónico</label>
+                                <span data-fs-error="email" class="text-danger small"></span>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto"
-                                    required>
+                                    data-fs-field required>
                                 <label for="asunto"><i class="bi bi-tag-fill me-2"></i>Asunto</label>
+                                <span data-fs-error="asunto" class="text-danger small"></span>
                             </div>
                             <div class="form-floating mb-4">
                                 <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje"
-                                    rows="5" required></textarea>
+                                    rows="5" data-fs-field required></textarea>
                                 <label for="mensaje"><i class="bi bi-chat-left-text-fill me-2"></i>Mensaje</label>
+                                <span data-fs-error="mensaje" class="text-danger small"></span>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-glow w-100">
+                            <button type="submit" class="btn btn-primary btn-glow w-100" data-fs-submit-btn>
                                 <i class="bi bi-send-fill me-2"></i>Enviar Mensaje
                             </button>
                         </form>
@@ -915,6 +922,17 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Formspree AJAX -->
+    <script>
+      window.formspree = window.formspree || function () {
+        (formspree.q = formspree.q || []).push(arguments);
+      };
+      formspree('initForm', {
+        formElement: '#contactForm',
+        formId: 'xqegarzw'
+      });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     <!-- Script personalizado -->
     <script src="js/main.js"></script>
     <!-- Script Terminal Interactiva -->

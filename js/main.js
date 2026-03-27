@@ -109,60 +109,12 @@ function initCounter() {
 }
 
 // ========================================
-// MANEJO DEL FORMULARIO DE CONTACTO
+// MANEJO DEL FORMULARIO DE CONTACTO (Formspree AJAX)
 // ========================================
 function initFormHandler() {
-    const contactForm = document.getElementById('contactForm');
-
-    if (!contactForm) return;
-
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerHTML;
-
-        // Obtener valores del formulario
-        const formData = new FormData(contactForm);
-
-        // Validación básica manual extra (opcional por HTML5 required)
-        if (!formData.get('nombre') || !formData.get('email') || !formData.get('mensaje')) {
-            showNotification('Por favor completa todos los campos requeridos', 'error');
-            return;
-        }
-
-        try {
-            // Cambiar estado del botón
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Enviando...';
-
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                // Mostrar notificación de éxito
-                showNotification('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.', 'success');
-                contactForm.reset();
-            } else {
-                const data = await response.json();
-                if (data.errors) {
-                    showNotification(data.errors.map(error => error.message).join(", "), 'error');
-                } else {
-                    showNotification('Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.', 'error');
-                }
-            }
-        } catch (error) {
-            showNotification('Error de conexión. Revisa tu internet e inténtalo de nuevo.', 'error');
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-        }
-    });
+    // El formulario ahora es manejado por @formspree/ajax
+    // Los data-fs-success y data-fs-error manejan automáticamente
+    // los mensajes de éxito y error
 }
 
 /**
