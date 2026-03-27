@@ -601,7 +601,7 @@
         </div>
     </section>
 
-    <!-- Sección Galería (Próximamente) -->
+    <!-- Sección Galería  -->
     <section id="galeria" class="gallery-section py-5">
         <div class="container py-5">
             <div class="text-center mb-5">
@@ -769,6 +769,7 @@
                             <div class="contact-details">
                                 <h4>Ubicación</h4>
                                 <p>Corporación Universitaria Americana<br>Barranquilla, Colombia</p>
+                                <p>Calle 72 # 41C-64, Sede Cosmos</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -813,24 +814,25 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="contact-form-wrapper">
-                        <form class="contact-form" id="contactForm">
+                        <form class="contact-form" id="contactForm" action="https://formspree.io/f/XXXXX" method="POST">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nombre" placeholder="Nombre completo"
-                                    required>
+                                <input type="text" class="form-control" id="nombre" name="nombre"
+                                    placeholder="Nombre completo" required>
                                 <label for="nombre"><i class="bi bi-person-fill me-2"></i>Nombre completo</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="email" placeholder="Correo electrónico"
-                                    required>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Correo electrónico" required>
                                 <label for="email"><i class="bi bi-envelope-fill me-2"></i>Correo electrónico</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="asunto" placeholder="Asunto" required>
+                                <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto"
+                                    required>
                                 <label for="asunto"><i class="bi bi-tag-fill me-2"></i>Asunto</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <textarea class="form-control" id="mensaje" placeholder="Mensaje" rows="5"
-                                    required></textarea>
+                                <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje"
+                                    rows="5" required></textarea>
                                 <label for="mensaje"><i class="bi bi-chat-left-text-fill me-2"></i>Mensaje</label>
                             </div>
                             <button type="submit" class="btn btn-primary btn-glow w-100">

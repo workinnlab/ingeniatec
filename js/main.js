@@ -43,24 +43,24 @@ const scrollTopBtn = document.getElementById('scrollTop');
 function initScrollEffects() {
     window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
-        
+
         // Efecto navbar al hacer scroll
         if (currentScrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-        
+
         // Botón scroll to top
         if (currentScrollY > 500) {
             scrollTopBtn.classList.add('visible');
         } else {
             scrollTopBtn.classList.remove('visible');
         }
-        
+
         lastScrollY = currentScrollY;
     });
-    
+
     // Scroll to top button
     scrollTopBtn.addEventListener('click', () => {
         window.scrollTo({
@@ -76,19 +76,19 @@ function initScrollEffects() {
 function initCounter() {
     const counters = document.querySelectorAll('.count');
     const speed = 200; // Velocidad de animación
-    
+
     const observerOptions = {
         threshold: 0.5,
         rootMargin: '0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = +counter.getAttribute('data-target');
                 const increment = target / speed;
-                
+
                 const updateCount = () => {
                     const count = +counter.innerText;
                     if (count < target) {
@@ -98,13 +98,13 @@ function initCounter() {
                         counter.innerText = target;
                     }
                 };
-                
+
                 updateCount();
                 observer.unobserve(counter);
             }
         });
     }, observerOptions);
-    
+
     counters.forEach(counter => observer.observe(counter));
 }
 
@@ -113,40 +113,55 @@ function initCounter() {
 // ========================================
 function initFormHandler() {
     const contactForm = document.getElementById('contactForm');
-    
+
     if (!contactForm) return;
-    
-    contactForm.addEventListener('submit', (e) => {
+
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+
         // Obtener valores del formulario
-        const formData = {
-            nombre: document.getElementById('nombre').value,
-            email: document.getElementById('email').value,
-            asunto: document.getElementById('asunto').value,
-            mensaje: document.getElementById('mensaje').value
-        };
-        
-        // Validación básica
-        if (!formData.nombre || !formData.email || !formData.asunto || !formData.mensaje) {
-            showNotification('Por favor completa todos los campos', 'error');
+        const formData = new FormData(contactForm);
+
+        // Validación básica manual extra (opcional por HTML5 required)
+        if (!formData.get('nombre') || !formData.get('email') || !formData.get('mensaje')) {
+            showNotification('Por favor completa todos los campos requeridos', 'error');
             return;
         }
-        
-        // Validar email
-        if (!isValidEmail(formData.email)) {
-            showNotification('Por favor ingresa un email válido', 'error');
-            return;
+
+        try {
+            // Cambiar estado del botón
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Enviando...';
+
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Mostrar notificación de éxito
+                showNotification('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.', 'success');
+                contactForm.reset();
+            } else {
+                const data = await response.json();
+                if (data.errors) {
+                    showNotification(data.errors.map(error => error.message).join(", "), 'error');
+                } else {
+                    showNotification('Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.', 'error');
+                }
+            }
+        } catch (error) {
+            showNotification('Error de conexión. Revisa tu internet e inténtalo de nuevo.', 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
         }
-        
-        // Simular envío (aquí iría la lógica real de envío)
-        console.log('Formulario enviado:', formData);
-        
-        // Mostrar notificación de éxito
-        showNotification('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.', 'success');
-        
-        // Resetear formulario
-        contactForm.reset();
     });
 }
 
@@ -169,16 +184,16 @@ function showNotification(message, type = 'info') {
         <i class="bi bi-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}-fill"></i>
         <span>${message}</span>
     `;
-    
+
     // Agregar estilos
     Object.assign(notification.style, {
         position: 'fixed',
         top: '100px',
         right: '20px',
         padding: '1rem 1.5rem',
-        background: type === 'success' ? 'linear-gradient(135deg, #198754, #20c997)' : 
-                    type === 'error' ? 'linear-gradient(135deg, #dc3545, #ff6b6b)' : 
-                    'linear-gradient(135deg, #0d6efd, #0dcaf0)',
+        background: type === 'success' ? 'linear-gradient(135deg, #198754, #20c997)' :
+            type === 'error' ? 'linear-gradient(135deg, #dc3545, #ff6b6b)' :
+                'linear-gradient(135deg, #0d6efd, #0dcaf0)',
         color: 'white',
         borderRadius: '12px',
         boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
@@ -191,9 +206,9 @@ function showNotification(message, type = 'info') {
         fontFamily: "'Rajdhani', sans-serif",
         fontWeight: '600'
     });
-    
+
     document.body.appendChild(notification);
-    
+
     // Remover después de 5 segundos
     setTimeout(() => {
         notification.style.animation = 'slideOutRight 0.3s ease';
@@ -232,33 +247,33 @@ document.head.appendChild(style);
 // ========================================
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
-    
+
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
-            
+
             // Ignorar enlaces # vacíos
             if (href === '#') return;
-            
+
             const target = document.querySelector(href);
-            
+
             if (target) {
                 e.preventDefault();
-                
+
                 const offsetTop = target.offsetTop - 80; // Considerar navbar fixed
-                
+
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
                 });
-                
+
                 // Cerrar menú móvil si está abierto
                 const navbarCollapse = document.querySelector('.navbar-collapse');
                 if (navbarCollapse.classList.contains('show')) {
                     const bsCollapse = new bootstrap.Collapse(navbarCollapse);
                     bsCollapse.hide();
                 }
-                
+
                 // Actualizar estado activo en navbar
                 updateActiveNavLink(href);
             }
@@ -271,7 +286,7 @@ function initSmoothScroll() {
  */
 function updateActiveNavLink(targetHref) {
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === targetHref) {
@@ -318,7 +333,7 @@ document.head.appendChild(animateStyle);
 window.addEventListener('scroll', () => {
     const hero = document.querySelector('.hero-section');
     const scrolled = window.scrollY;
-    
+
     if (hero && scrolled < window.innerHeight) {
         const particles = document.getElementById('particles');
         if (particles) {
@@ -332,7 +347,7 @@ window.addEventListener('scroll', () => {
 // ========================================
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    
+
     // Eliminar cualquier loader si existe
     const preloader = document.querySelector('.preloader');
     if (preloader) {
