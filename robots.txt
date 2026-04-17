@@ -1,0 +1,15 @@
+# Robots.txt para INGENIATEC
+# https://workinnlab.github.io/ingeniatec/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://workinnlab.github.io/ingeniatec/sitemap.xml
+
+# Reglas específicas
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
