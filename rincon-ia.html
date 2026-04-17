@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rincón IA Responsable - INGENIATEC</title>
+    <meta name="description"
+        content="Rincón IA Responsable del Semillero INGENIATEC - Tutoriales, guías y recursos para uso ético de IA">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Orbitron para títulos futuristas -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css?v=3">
+    <style>
+        /* Custom Accordion Styles to match dark theme */
+        .accordion-button {
+            background-color: var(--bg-tertiary) !important;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--border-color) !important;
+            font-weight: 600 !important;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: var(--primary-glow) !important;
+            color: var(--text-primary) !important;
+            box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+        }
+        
+        .accordion-button:focus {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 0.25rem rgba(92, 124, 250, 0.25) !important;
+        }
+        
+        .accordion-button:hover {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        .accordion-body {
+            background-color: var(--bg-secondary) !important;
+            color: var(--text-secondary) !important;
+            border-top: 1px solid var(--border-color) !important;
+        }
+        
+        .accordion-item {
+            background-color: var(--bg-tertiary) !important;
+            border: 1px solid var(--border-color) !important;
+            margin-bottom: 0.5rem !important;
+            border-radius: 8px !important;
+        }
+        
+        .accordion-item:last-of-type {
+            margin-bottom: 0 !important;
+        }
+        
+        /* Chevron icon rotation */
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+        
+        .accordion-button:not(.collapsed)::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 10.354a.5.5 0 0 1 .708 0L8 6.708 2.354 12.146a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+        }
+        
+        /* Badge colors to match theme */
+        .badge.bg-success {
+            background-color: #28c840 !important;
+        }
+        
+        .badge.bg-info {
+            background-color: #22d3ee !important;
+        }
+        
+        .badge.bg-warning {
+            background-color: #febc2e !important;
+        }
+        
+        .badge.bg-secondary {
+            background-color: #a0a0a0 !important;
+        }
+
+        /* Code blocks styling */
+        .code-block {
+            background-color: #1a1a25;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 0.75rem 0;
+        }
+
+        .code-block code {
+            color: #22d3ee;
+        }
+
+        .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary) !important;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .doc-link:hover {
+            text-decoration: underline;
+        }
+
+        .warning-box {
+            background-color: rgba(254, 188, 46, 0.1);
+            border: 1px solid rgba(254, 188, 46, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .warning-box h6 {
+            color: #febc2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .info-table th {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-table td {
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+    </style>
+    <style>
+        /* Header styles */
+        .site-header {
+            background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        .header-logo {
+            display: flex;
+            align-items: center;
+        }
+        .header-logo img {
+            height: 36px;
+            width: auto;
+        }
+        .header-logo:hover {
+            opacity: 0.9;
+        }
+        .header-search {
+            position: relative;
+        }
+        .header-search input {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            padding-left: 2.5rem;
+            border-radius: 8px;
+            width: 100%;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .header-search input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(92, 124, 250, 0.2);
+        }
+        .header-search .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            justify-content: flex-end;
+        }
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .header-nav a:hover {
+            color: var(--primary);
+        }
+        .header-hero {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .header-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .header-hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Search results dropdown */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+        .search-results.active {
+            display: block;
+        }
+        .search-result-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        .search-result-item:hover {
+            background: var(--bg-tertiary);
+        }
+        .search-result-item h6 {
+            color: var(--text-primary);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .search-result-item p {
+            color: var(--text-muted);
+            margin: 0.25rem 0 0;
+            font-size: 0.8rem;
+        }
+        /* Footer styles */
+        .site-footer {
+            background: var(--bg-tertiary);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .site-footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-footer-left {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .site-footer-right {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-align: right;
+        }
+        .site-footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .site-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="site-header">
+        <div class="container-fluid px-4">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-auto">
+                    <a href="index.html" class="header-logo">
+                        <img src="assets/logotipos/logo_ingeniatec_hor.svg" alt="INGENIATEC" style="height: 40px;">
+                    </a>
+                </div>
+                <!-- Search -->
+                <div class="col">
+                    <div class="header-search mx-4">
+                        <i class="bi bi-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Buscar en el Rincón IA..." autocomplete="off">
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                </div>
+                <!-- Nav links -->
+                <div class="col-auto">
+                    <nav class="header-nav">
+                        <a href="#inicio" onclick="showSection('inicio')">Inicio</a>
+                        <a href="#tutoriales-ia-cli" onclick="showSection('tutoriales-ia-cli')">Tools</a>
+                        <a href="#documentacion-skills" onclick="showSection('documentacion-skills')">Skills</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="header-hero">
+        <div class="container">
+            <h1 class="section-title">
+                Rincón <span class="gradient-text">IA Responsable</span>
+            </h1>
+            <p>Explora herramientas de IA, MCPs y skills con enfoque ético y responsable para tu investigación</p>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <div class="row g-4">
+            <!-- COLUMNA IZQUIERDA: NAVEGACIÓN (20% en md+) -->
+            <div class="col-md-2 col-12">
+                <h4 class="section-title mb-4">Menú</h4>
+                <nav class="nav flex-column">
+                    <a href="#tutoriales-ia-cli" class="nav-link mb-2">
+                        Tutoriales IA CLI
+                    </a>
+                    <a href="#guias-mcps" class="nav-link mb-2">
+                        Guías MCPs
+                    </a>
+                    <a href="#documentacion-skills" class="nav-link mb-2">
+                        Skills
+                    </a>
+                    <a href="#ejemplos-semillero" class="nav-link mb-2">
+                        Skills del Semillero
+                    </a>
+                </nav>
+            </div>
+            
+            <!-- COLUMNA CENTRO: CONTENIDO PRINCIPAL (60% en md+) -->
+            <div class="col-md-6 col-12">
+                <!-- Contenido inicial: Página de bienvenida -->
+                <section id="inicio" class="mb-5">
+                    <h2 class="section-title">
+                        Rincón <span class="gradient-text">IA Responsable</span>
+                    </h2>
+                    <p class="lead text-muted">
+                        Espacio dedicado a explorar herramientas de IA con enfoque ético y responsable.
+                        Aquí encontrarás recursos para potenciar tu investigación manteniendo los más altos estándares de integridad.
+                    </p>
+                    
+                    <!-- Características principales -->
+                    <div class="row g-4 mt-4">
+                        <div class="col-md-6">
+                            <div class="card h-100 bg-transparent border-0">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-terminal display-4 text-gradient mb-3"></i>
+                                    <h5>Herramientas CLI</h5>
+                                    <p class="text-muted small">Aprende a usar IA desde la línea de comandos</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 bg-transparent border-0">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-puzzle display-4 text-gradient mb-3"></i>
+                                    <h5>MCPs y Skills</h5>
+                                    <p class="text-muted small">Conecta modelos y crea habilidades personalizadas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Sección: Tutoriales IA CLI -->
+                <section id="tutoriales-ia-cli" class="mb-5">
+                    <h2 class="section-title">
+                        Tutoriales <span class="gradient-text">IA CLI</span>
+                    </h2>
+                    <p class="text-muted mb-4">
+                        Aprende a utilizar herramientas de inteligencia artificial desde la línea de comandos para
+                        maximizar tu productividad en investigación y desarrollo. Todas incluyenAPI keys propias o integración con proveedores externos.
+                    </p>
+                    
+                    <!-- Acordeón de Bootstrap -->
+                    <div class="accordion" id="accordionTutorialesIA">
+                        <!-- Item 1: Claude Code CLI -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingClaudeCode">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseClaudeCode" aria-expanded="false" aria-controls="collapseClaudeCode">
+                                    <i class="bi bi-cpu me-2"></i> Claude Code CLI
+                                </button>
+                            </h2>
+                            <div id="collapseClaudeCode" class="accordion-collapse collapse" aria-labelledby="headingClaudeCode" 
+                                 data-bs-parent="#accordionTutorialesIA">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                        Agente de IA oficial de Anthropic para la terminal. Lee tu código, ejecuta comandos,
+                                        modifica archivos y conecta con servicios externos vía MCP. Ideal para desarrollo interactivo y automatización.
+                                    </p>
+                                    
+                                    <h6 class="text-gradient mt-3">Instalación</h6>
+                                    <div class="code-block">
+                                        <code>curl -fsSL https://claude.ai/install.sh | bash</code>
+                                    </div>
+                                    <p class="text-muted small">Requiere Node.js 18+ y API key de Anthropic.</p>
+                                    
+                                    <h6 class="text-gradient mt-3">Comandos Esenciales</h6>
+                                    <table class="info-table">
+                                        <tr>
+                                            <th>Comando</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                        <tr>
+                                            <td>claude</td>
+                                            <td>Iniciar sesión interactiva</td>
+                                        </tr>
+                                        <tr>
+                                            <td>claude "prompt"</td>
+                                            <td>Iniciar con prompt inicial</td>
+                                        </tr>
+                                        <tr>
+                                            <td>claude -p "prompt"</td>
+                                            <td>Modo no-interactivo (sale tras responder)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>claude -c</td>
+                                            <td>Continuar sesión anterior</td>
+                                        </tr>
+                                        <tr>
+                                            <td>claude auth login</td>
+                                            <td>Autenticarse con Anthropic</td>
+                                        </tr>
+                                        <tr>
+                                            <td>claude mcp</td>
+                                            <td>Gestionar servidores MCP</td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <h6 class="text-gradient mt-3">Ejemplo Práctico</h6>
+                                    <div class="code-block">
+                                        <code># Analizar un archivo de código<br>
+claude -p "What does this function do?" archivo.py<br><br>
+# Autenticarse para uso con API billing<br>
+claude auth login --console<br><br>
+# Continuar sesión anterior<br>
+claude -c</code>
+                                    </div>
+                                    
+                                    <a href="https://docs.anthropic.com/en/docs/claude-code/cli-reference" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Documentación oficial de Claude Code
+                                    </a>
+                                    
+                                    <div class="warning-box">
+                                        <h6><i class="bi bi-exclamation-triangle me-2"></i>IA Responsable</h6>
+                                        <p>Claude Code envía código a servidores de Anthropic. No expongas secretos, clavesAPI o datos sensibles en tus prompts. Revisa sempre el código generado antes de ejecutarlo. El modelo por defecto es Sonnet (~€3-€15por millón de tokens).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2: GitHub Copilot CLI -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingCopilotCLI">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseCopilotCLI" aria-expanded="false" aria-controls="collapseCopilotCLI">
+                                    <i class="bi bi-github me-2"></i> GitHub Copilot CLI
+                                </button>
+                            </h2>
+                            <div id="collapseCopilotCLI" class="accordion-collapse collapse" aria-labelledby="headingCopilotCLI" 
+                                 data-bs-parent="#accordionTutorialesIA">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                        Asistente de IA de GitHub para tu terminal. Responde preguntas, escribe y depura código,
+                                        interactúa con GitHub. Incluido con suscripción a GitHub Copilot.
+                                    </p>
+                                    
+                                    <h6 class="text-gradient mt-3">Instalación</h6>
+                                    <div class="code-block">
+                                        <code># macOS<br>
+brew install --cask github-copilot<br><br>
+# O con npm<br>
+npm install -g @github/copilot-cli</code>
+                                    </div>
+                                    
+                                    <h6 class="text-gradient mt-3">Comandos Esenciales</h6>
+                                    <table class="info-table">
+                                        <tr>
+                                            <th>Comando</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                        <tr>
+                                            <td>copilot</td>
+                                            <td>Iniciar sesión interactiva</td>
+                                        </tr>
+                                        <tr>
+                                            <td>copilot -p "prompt"</td>
+                                            <td>Modo no-interactivo</td>
+                                        </tr>
+                                        <tr>
+                                            <td>copilot --allow-tool</td>
+                                            <td>Permitir herramientas</td>
+                                        </tr>
+                                        <tr>
+                                            <td>copilot /login</td>
+                                            <td>Autenticarse</td>
+                                        </tr>
+                                        <tr>
+                                            <td>copilot /agent</td>
+                                            <td>Invocar agente específico</td>
+                                        </tr>
+                                        <tr>
+                                            <td>copilot --resume</td>
+                                            <td>Reanudar sesión</td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <h6 class="text-gradient mt-3">Ejemplo Práctico</h6>
+                                    <div class="code-block">
+                                        <code># сделать pregunta directa<br>
+copilot -p "Explícame cómo funciona este archivo"<br><br>
+# Ejecutar comando de shell sin IA<br>
+!git clone https://github.com/owner/repo<br><br>
+# Solicitar revisión de código<br>
+copilot -p "Revisa los últimos cambios" --allow-tool='shell,read'</code>
+                                    </div>
+                                    
+                                    <a href="https://docs.github.com/en/copilot/how-tos/copilot-cli" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Documentación oficial de GitHub Copilot CLI
+                                    </a>
+                                    
+                                    <div class="warning-box">
+                                        <h6><i class="bi bi-exclamation-triangle me-2"></i>IA Responsable</h6>
+                                        <p>Requiere suscripción a GitHub Copilot. Configura permisos de herramientas con --allow-tool para controlar qué puede hacer Copilot. Usa el argumento ! para ejecutar comandos directamente sin IA.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3: opencode -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOpencode">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseOpencode" aria-expanded="false" aria-controls="collapseOpencode">
+                                    <i class="bi bi-code-square me-2"></i> opencode
+                                </button>
+                            </h2>
+                            <div id="collapseOpencode" class="accordion-collapse collapse" aria-labelledby="headingOpencode" 
+                                 data-bs-parent="#accordionTutorialesIA">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                        Agente de IA de código abierto. Flexible y extensible con soporte para múltiples
+                                        proveedores de modelos (OpenAI, Anthropic, Ollama, etc.). Ideal para personalización.
+                                    </p>
+                                    
+                                    <h6 class="text-gradient mt-3">Instalación</h6>
+                                    <div class="code-block">
+                                        <code># Instalador oficial<br>
+curl -fsSL https://opencode.ai/install | bash<br><br>
+# O con npm<br>
+npm install -g opencode-ai<br><br>
+# O con Homebrew<br>
+brew install anomalyco/tap/opencode</code>
+                                    </div>
+                                    
+                                    <h6 class="text-gradient mt-3">Comandos Esenciales</h6>
+                                    <table class="info-table">
+                                        <tr>
+                                            <th>Comando</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                        <tr>
+                                            <td>opencode</td>
+                                            <td>Iniciar TUI interactiva</td>
+                                        </tr>
+                                        <tr>
+                                            <td>opencode run "prompt"</td>
+                                            <td>Ejecutar prompt directamente</td>
+                                        </tr>
+                                        <tr>
+                                            <td>opencode auth login</td>
+                                            <td>Configurar API keys</td>
+                                        </tr>
+                                        <tr>
+                                            <td>opencode agent create</td>
+                                            <td>Crear agente personalizado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>opencode mcp add</td>
+                                            <td>Agregar servidor MCP</td>
+                                        </tr>
+                                        <tr>
+                                            <td>opencode models</td>
+                                            <td>Listar modelos disponibles</td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <h6 class="text-gradient mt-3">Ejemplo Práctico</h6>
+                                    <div class="code-block">
+                                        <code># Iniciar sesión interactiva<br>
+opencode<br><br>
+# Autenticarse con proveedor<br>
+opencode auth login<br><br>
+# Ejecutar tarea específica<br>
+opencode run "Explain this code snippet"<br><br>
+# Crear agente personalizado<br>
+opencode agent create</code>
+                                    </div>
+                                    
+                                    <a href="https://opencode.ai/docs/cli/" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Documentación oficial de opencode
+                                    </a>
+                                    
+                                    <div class="warning-box">
+                                        <h6><i class="bi bi-exclamation-triangle me-2"></i>IA Responsable</h6>
+                                        <p>Utiliza API keys de Modelos.dev o proveedores propios. Puedes controlar qué herramientas puede usar cada agente. Muy útil para equipos que necesitan control total sobre sus datos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 4: ollama -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOllama">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseOllama" aria-expanded="false" aria-controls="collapseOllama">
+                                    <i class="bi bi-robot me-2"></i> ollama
+                                </button>
+                            </h2>
+                            <div id="collapseOllama" class="accordion-collapse collapse" aria-labelledby="headingOllama" 
+                                 data-bs-parent="#accordionTutorialesIA">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                       Ejecuta modelos de lenguaje grandes localmente en tu máquina. Privacidad total ya que los datos
+                                        nunca salen de tu equipo. Perfecto para investigación con datos sensibles.
+                                    </p>
+                                    
+                                    <h6 class="text-gradient mt-3">Instalación</h6>
+                                    <div class="code-block">
+                                        <code># macOS / Linux<br>
+curl -fsSL https://ollama.com/install.sh | sh<br><br>
+# Windows (WSL o Docker)<br>
+# Descarga desde ollama.com</code>
+                                    </div>
+                                    
+                                    <h6 class="text-gradient mt-3">Comandos Esenciales</h6>
+                                    <table class="info-table">
+                                        <tr>
+                                            <th>Comando</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                        <tr>
+                                            <td>ollama run modelo</td>
+                                            <td>Ejecutar modelo (ej: llama3.2)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ollama pull modelo</td>
+                                            <td>Descargar modelo</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ollama list</td>
+                                            <td>Listar modelos descargados</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ollama serve</td>
+                                            <td>Iniciar servidor API</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ollama ps</td>
+                                            <td>Ver modelos activos</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ollama launch</td>
+                                            <td>Iniciar integraciones (OpenCode, Claude)</td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <h6 class="text-gradient mt-3">Ejemplo Práctico</h6>
+                                    <div class="code-block">
+                                        <code># Descargar y ejecutar modelo<br>
+ollama pull llama3.2<br>
+ollama run llama3.2<br><br>
+# Ver modelos disponibles<br>
+ollama list<br><br>
+# Iniciar servidor API local<br>
+ollama serve<br><br>
+# Lanzar integración con Claude Code<br>
+ollama launch claude --model qwen3.5</code>
+                                    </div>
+                                    
+                                    <a href="https://docs.ollama.com/cli" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Documentación oficial de Ollama
+                                    </a>
+                                    
+                                    <div class="warning-box">
+                                        <h6><i class="bi bi-exclamation-triangle me-2"></i>IA Responsable</h6>
+                                        <p>100% local - tus datos nunca salen de tu máquina. Require recursos significativos (8GB+ RAM Recomendado). Ideal para datos sensibles o experimentos que no puedes enviar a la nube.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Sección: Guías MCPs -->
+                <section id="guias-mcps" class="mb-5">
+                    <h2 class="section-title">
+                        Guías <span class="gradient-text">MCPs</span>
+                    </h2>
+                    <p class="text-muted mb-4">
+                        El Model Context Protocol (MCP) es un estándar abierto para conectar aplicaciones IA con sistemas externos.
+                        Aprende a configurar servidores MCP para expandir las capacidades de tu CLI favorita.
+                    </p>
+                    
+                    <!-- Acordeón de Bootstrap -->
+                    <div class="accordion" id="accordionMcps">
+                        <!-- Item 1: ¿Qué es MCP? -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingWhatIsMCP">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseWhatIsMCP" aria-expanded="false" aria-controls="collapseWhatIsMCP">
+                                    <i class="bi bi-question-circle me-2"></i> ¿Qué es MCP?
+                                </button>
+                            </h2>
+                            <div id="collapseWhatIsMCP" class="accordion-collapse collapse" aria-labelledby="headingWhatIsMCP" 
+                                 data-bs-parent="#accordionMcps">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                        MCP (Model Context Protocol) es como el USB-C para aplicaciones de IA. Proporciona una forma estándar
+                                        de conectar modelos de IA a fuentes de datos externas, herramientas y flujos de trabajo. Pensado como un "conector universal"
+                                        entre la IA y el mundo exterior.
+                                    </p>
+                                    <ul class="text-muted mt-3">
+                                        <li><strong>Recursos:</strong> Datos que la IA puede leer (archivos, bases de datos)</li>
+                                        <li><strong>Herramientas:</strong> Acciones que la IA puede ejecutar (API calls, comandos)</li>
+                                        <li><strong>Prompts:</strong> Plantillas reutilizables para workflows</li>
+                                    </ul>
+                                    
+                                    <a href="https://modelcontextprotocol.io/docs/getting-started/intro" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Documentación oficial de MCP
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2: MCPs Populares -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingPopularMCPs">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapsePopularMCPs" aria-expanded="false" aria-controls="collapsePopularMCPs">
+                                    <i class="bi bi-star me-2"></i> MCPs Populares
+                                </button>
+                            </h2>
+                            <div id="collapsePopularMCPs" class="accordion-collapse collapse" aria-labelledby="headingPopularMCPs" 
+                                 data-bs-parent="#accordionMcps">
+                                <div class="accordion-body">
+                                    <p class="text-muted mb-3">Servidores MCP más utilizados por la comunidad:</p>
+                                    
+                                    <table class="info-table">
+                                        <tr>
+                                            <th>MCP Server</th>
+                                            <th>Función</th>
+                                        </tr>
+                                        <tr>
+                                            <td>GitHub</td>
+                                            <td>Gestión de repos, issues, PRs</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Filesystem</td>
+                                            <td>Operaciones con archivos locales</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Memory</td>
+                                            <td>Memoria persistente (knowledge graph)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Git</td>
+                                            <td>Operaciones Git</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sentry</td>
+                                            <td>Monitoreo de errores</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PostgreSQL</td>
+                                            <td>Consultas a bases de datos</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Context7</td>
+                                            <td>Búsqueda en documentación</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brave Search</td>
+                                            <td>Búsqueda web</td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <a href="https://github.com/modelcontextprotocol/servers" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Repositorio oficial de servidores MCP
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3: Configuración en opencode -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingMCPConfig">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseMCPConfig" aria-expanded="false" aria-controls="collapseMCPConfig">
+                                    <i class="bi bi-gear me-2"></i> Configurar MCP en opencode
+                                </button>
+                            </h2>
+                            <div id="collapseMCPConfig" class="accordion-collapse collapse" aria-labelledby="headingMCPConfig" 
+                                 data-bs-parent="#accordionMcps">
+                                <div class="accordion-body">
+                                    <p class="text-muted">Agrega servidores MCP en tu archivo de configuración:</p>
+                                    
+                                    <h6 class="text-gradient mt-3">MCP Local</h6>
+                                    <div class="code-block">
+                                        <code>{
+  "mcp": {
+    "mi-servidor": {
+      "type": "local",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-git"]
+    }
+  }
+}</code>
+                                    </div>
+                                    
+                                    <h6 class="text-gradient mt-3">MCP Remoto</h6>
+                                    <div class="code-block">
+                                        <code>{
+  "mcp": {
+    "sentry": {
+      "type": "remote",
+      "url": "https://mcp.sentry.dev/mcp",
+      "oauth": {}
+    }
+  }
+}</code>
+                                    </div>
+                                    
+                                    <h6 class="text-gradient mt-3">Gestión de MCPs</h6>
+                                    <div class="code-block">
+                                        <code># Listar MCPs configurados<br>
+opencode mcp list<br><br>
+# Autenticar con MCP<br>
+opencode mcp auth mi-servidor<br><br>
+# Agregar MCP desde JSON<br>
+opencode mcp add-json nombre '{"type":"http","url":"..."}'</code>
+                                    </div>
+                                    
+                                    <a href="https://dev.opencode.ai/docs/mcp-servers/" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Documentación de MCPs en opencode
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 4: Configuración en Claude Code -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingMCPClaude">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseMCPClaude" aria-expanded="false" aria-controls="collapseMCPClaude">
+                                    <i class="bi bi-gear me-2"></i> Configurar MCP en Claude Code
+                                </button>
+                            </h2>
+                            <div id="collapseMCPClaude" class="accordion-collapse collapse" aria-labelledby="headingMCPClaude" 
+                                 data-bs-parent="#accordionMcps">
+                                <div class="accordion-body">
+                                    <p class="text-muted">Gestiona servidores MCP directamente desde CLI:</p>
+                                    
+                                    <div class="code-block">
+                                        <code># Agregar servidor MCP<br>
+claude mcp add nombre-servidor<br><br>
+# Listar MCPs<br>
+claude mcp list<br><br>
+# Ver detalles de un servidor<br>
+claude mcp get github<br><br>
+# Remover servidor<br>
+claude mcp remove github<br><br>
+# Agregar desde JSON<br>
+claude mcp add-json weather '{"type":"http","url":"..."}'</code>
+                                    </div>
+                                    
+                                    <h6 class="text-gradient mt-3">Configuración en archivo</h6>
+                                    <p class="text-muted">También puedes configurar en ~/.claude/settings.json:</p>
+                                    <div class="code-block">
+                                        <code>{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"]
+    }
+  }
+}</code>
+                                    </div>
+                                    
+                                    <a href="https://docs.anthropic.com/en/docs/claude-code/core-concepts/model-context-protocol" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Documentación de MCP en Claude Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Sección: Documentación Skills -->
+                <section id="documentacion-skills" class="mb-5">
+                    <h2 class="section-title">
+                        Documentación <span class="gradient-text">Skills</span>
+                    </h2>
+                    <p class="text-muted mb-4">
+                        Las skills son módulos reutilizables que extienden las capacidades de tu asistente de IA.
+                        Cada CLI tiene su propio sistema de skills con configuraciones específicas.
+                    </p>
+                    
+                    <!-- Acordeón de Bootstrap -->
+                    <div class="accordion" id="accordionSkills">
+                        <!-- Item 1: Skills en GitHub Copilot CLI -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingCopilotSkills">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseCopilotSkills" aria-expanded="false" aria-controls="collapseCopilotSkills">
+                                    <i class="bi bi-lightning me-2"></i> Skills en Copilot CLI
+                                </button>
+                            </h2>
+                            <div id="collapseCopilotSkills" class="accordion-collapse collapse" aria-labelledby="headingCopilotSkills" 
+                                 data-bs-parent="#accordionSkills">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                        Las skills en Copilot CLI son conjuntos de instrucciones que se cargan automáticamente
+                                        para tareas específicas. Se definen en la configuración del proyecto.
+                                    </p>
+                                    
+                                    <h6 class="text-gradient mt-3">Estructura de una Skill</h6>
+                                    <div class="code-block">
+                                        <code>.copilot/<br>
+├── commands/<br>
+���   └── summarize.md    # /summarize command<br>
+└── skills/<br>
+    └── reviewer.md     # Skill completa con contexto</code>
+                                    </div>
+                                    
+                                    <h6 class="text-gradient mt-3">Ejemplo de Skill</h6>
+                                    <div class="code-block">
+                                        <code>---
+name: code-reviewer<br>
+description: Realiza revisión de código<br>
+instruction: \|Eres un experto revisor de código. Analiza el código proporcionado<br>
+y sugiere mejoras. Enfócate en: seguridad, rendimiento y buenas prácticas.<br>
+tools: read,shell</code>
+                                    </div>
+                                    
+                                    <a href="https://docs.github.com/en/copilot/customizing-your-copilot-cli/skill-sets" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Documentación de Skills en Copilot CLI
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2: Skills en Claude Code -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingClaudeSkills">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseClaudeSkills" aria-expanded="false" aria-controls="collapseClaudeSkills">
+                                    <i class="bi bi-lightning me-2"></i> Skills en Claude Code
+                                </button>
+                            </h2>
+                            <div id="collapseClaudeSkills" class="accordion-collapse collapse" aria-labelledby="headingClaudeSkills" 
+                                 data-bs-parent="#accordionSkills">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                        Las skills en Claude Code son módulos reutilizables con recursos incluidos (instrucciones, archivos de ejemplo, etc.).
+                                        Se invocan con /nombre-skill dentro de la sesión.
+                                    </p>
+                                    
+                                    <h6 class="text-gradient mt-3">Crear una Skill</h6>
+                                    <div class="code-block">
+                                        <code># En sesión interactiva<br>
+/skill-create<br><br>
+# O manualmente en .claude/skills/<br>
+.claude/skills/<br>
+└── mi-skill/<br>
+    ├── skill.md<br>
+    └── resources/<br>
+        └── examples/</code>
+                                    </div>
+                                    
+                                    <h6 class="text-gradient mt-3">Estructura de skill.md</h6>
+                                    <div class="code-block">
+                                        <code>---
+name: mi-skill<br>
+description: Análisis de código<br>
+tools: read,edit,glob<br> 
+---
+
+Eres un experto en análisis de código.<br>
+Ayúsame a identificar patrones y posibles errores.</code>
+                                    </div>
+                                    
+                                    <a href="https://docs.anthropic.com/en/docs/claude-code/core-concepts/skills" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Documentación de Skills en Claude Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3: Agentes en opencode -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOpencodeAgents">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseOpencodeAgents" aria-expanded="false" aria-controls="collapseOpencodeAgents">
+                                    <i class="bi bi-people me-2"></i> Agentes en opencode
+                                </button>
+                            </h2>
+                            <div id="collapseOpencodeAgents" class="accordion-collapse collapse" aria-labelledby="headingOpencodeAgents" 
+                                 data-bs-parent="#accordionSkills">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                        Los agentes en opencode son assistants especializados con prompts personalizados,
+                                        modelos específicos y herramientas habilitadas.
+                                    </p>
+                                    
+                                    <h6 class="text-gradient mt-3">Crear Agente</h6>
+                                    <div class="code-block">
+                                        <code># Comando interactivo<br>
+opencode agent create<br><br>
+# O manualmente en agent.json<br>
+{
+  "agent": {
+    "mi-agente": {
+      "description": "Especialista en código Python",
+      "model": "anthropic/claude-sonnet-4-20250514",
+      "prompt": "{file./prompts/python-expert.txt}",
+      "tools": {
+        "read": true,
+        "edit": true,
+        "glob": true,
+        "bash": true
+      }
+    }
+  }
+}</code>
+                                    </div>
+                                    
+                                    <h6 class="text-gradient mt-3">Agentes Incorporados</h6>
+                                    <ul class="text-muted">
+                                        <li><strong>build:</strong> Agente por defecto para desarrollo</li>
+                                        <li><strong>plan:</strong> Análisis y planificación sin modificar código</li>
+                                    </ul>
+                                    
+                                    <a href="https://dev.opencode.ai/docs/agents/" target="_blank" class="doc-link">
+                                        <i class="bi bi-box-arrow-up-right"></i> Documentación de Agentes en opencode
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 4: Mejores Prácticas -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingBestPractices">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseBestPractices" aria-expanded="false" aria-controls="collapseBestPractices">
+                                    <i class="bi bi-check-circle me-2"></i> Mejores Prácticas
+                                </button>
+                            </h2>
+                            <div id="collapseBestPractices" class="accordion-collapse collapse" aria-labelledby="headingBestPractices" 
+                                 data-bs-parent="#accordionSkills">
+                                <div class="accordion-body">
+                                    <h6 class="text-gradient">principios para Skills Responsables</h6>
+                                    <ul class="text-muted mt-3">
+                                        <li><strong>1. Transparencia:</strong> Documenta qué hace cada skill</li>
+                                        <li><strong>2. Límites claros:</strong> Define qué NO puede hacer</li>
+                                        <li><strong>3. Validación:</strong> Incluye verificaciones de seguridad</li>
+                                        <li><strong>4. versionado:</strong> Controla cambios en el código</li>
+                                        <li><strong>5. Reutilización:</strong> Comparte skills con la comunidad</li>
+                                    </ul>
+                                    
+                                    <h6 class="text-gradient mt-3">Estructura Recomendada</h6>
+                                    <div class="code-block">
+                                        <code>mi-proyecto/<br>
+├── .claude/              # Configuración de Claude Code<br>
+├── .copilot/             # Configuración de Copilot CLI<br>
+├── .opencode/            # Configuración de opencode<br>
+├── skills/               # Skills compartidas<br>
+└── agents/              # Agentes personalizados</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+<!-- Sección: Ejemplos del Semillero -->
+                <section id="ejemplos-semillero" class="mb-5">
+                    <h2 class="section-title">
+                        Skills del <span class="gradient-text">Semillero</span>
+                    </h2>
+                    <p class="text-muted mb-4">
+                        Skills y agentes desenvolvidos por miembros del Semillero INGENIATEC.
+                        ¿Quieres contribuir? Agrega tu skill al repo.
+                    </p>
+                    
+                    <!-- Acordeón de Bootstrap -->
+                    <div class="accordion" id="accordionEjemplos">
+                        <!-- Item 1: ArquiProject -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingArquiProject">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseArquiProject" aria-expanded="false" aria-controls="collapseArquiProject">
+                                    <i class="bi bi-diagram-3 me-2"></i> ArquiProject <span class="badge bg-success ms-2">Completa</span>
+                                </button>
+                            </h2>
+                            <div id="collapseArquiProject" class="accordion-collapse collapse" aria-labelledby="headingArquiProject" 
+                                 data-bs-parent="#accordionEjemplos">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                        Skill metodológica para formular, revisar y estructurar proyectos de ingeniería.
+                                        Convierte ideas vague en proyectos metodológicamente defendibles con enfoque de 4 fases.
+                                    </p>
+                                    
+                                    <h6 class="text-gradient mt-3">¿Qué hace?</h6>
+                                    <ul class="text-muted">
+                                        <li><strong>Mentor:</strong> Explica el porqué de las correcciones</li>
+                                        <li><strong>Evaluador:</strong> Detecta fallas metodológicas</li>
+                                        <li><strong>Constructor:</strong> Propone versiones mejoradas</li>
+                                    </ul>
+                                    
+                                    <h6 class="text-gradient mt-3">Modos de respuesta</h6>
+                                    <ul class="text-muted">
+                                        <li><strong>Mentor:</strong> Explica y guía paso a paso</li>
+                                        <li><strong>Exigente:</strong> Cuestiona ambigüedades</li>
+                                        <li><strong>Constructor:</strong> Propone soluciones</li>
+                                    </ul>
+                                    
+                                    <h6 class="text-gradient mt-3">Instalación</h6>
+                                    <div class="code-block">
+                                        <code># Opción 1: Copiar el prompt<br>
+# Ve a skills/arquiproject/SKILL.md<br>
+# Copia el contenido después del YAML<br>
+# Pégalo como instructions en tu LLM<br><br>
+# Opción 2: Como agente OpenAI<br>
+# Usa agents/openai.yaml como base<br>
+# Agrega references/metodologia.md<br><br>
+# Opción 3: En Gemini/Antigravity<br>
+# Copia la carpeta a tu directorio de skills</code>
+                                    </div>
+                                    
+                                    <div class="warning-box">
+                                        <h6><i class="bi bi-info-circle me-2"></i>Desarrollada por</h6>
+                                        <p>Semillero WorkInn Lab - Eduardo Pimienta</p>
+                                    </div>
+                                    
+                                    <a href="https://github.com/workinnlab/Skills/tree/main/skills/arquiproject" target="_blank" class="doc-link">
+                                        <i class="bi bi-github me-2"></i> Ver skill completa en GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2: Repo del Semillero -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingRepoSkills">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseRepoSkills" aria-expanded="false" aria-controls="collapseRepoSkills">
+                                    <i class="bi bi-collection me-2"></i> Repositorio del Semillero
+                                </button>
+                            </h2>
+                            <div id="collapseRepoSkills" class="accordion-collapse collapse" aria-labelledby="headingRepoSkills" 
+                                 data-bs-parent="#accordionEjemplos">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                        Repo centralizado con todas las skills desarrolladas por el semillero.
+                                        Cualquiera puede contribuir agregando nuevas skills.
+                                    </p>
+                                    
+                                    <h6 class="text-gradient mt-3">Estructura</h6>
+                                    <div class="code-block">
+                                        <code>Skills/<br>
+├── README.md              # Índice de skills<br>
+├── CONTRIBUTING.md        # Guía para contribuir<br>
+├── TEMPLATE/             # Plantilla para nuevas skills<br>
+└── skills/<br>
+    └── arquiproject/    # Skills existentes</code>
+                                    </div>
+                                    
+                                    <h6 class="text-gradient mt-3">Cómo contribuir</h6>
+                                    <ol class="text-muted">
+                                        <li>Copia la carpeta TEMPLATE/ a skills/nombre-de-tu-skill/</li>
+                                        <li>Completa el README.md con documentación</li>
+                                        <li>Agrega tu skill a la tabla en README.md</li>
+                                        <li>Haz un Pull Request</li>
+                                    </ol>
+                                    
+                                    <a href="https://github.com/workinnlab/Skills" target="_blank" class="doc-link">
+                                        <i class="bi bi-github me-2"></i> Ver repositorio en GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3: Placeholder - Skills futuras -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFutureSkills">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseFutureSkills" aria-expanded="false" aria-controls="collapseFutureSkills">
+                                    <i class="bi bi-plus-circle me-2"></i> Más skills coming soon...
+                                </button>
+                            </h2>
+                            <div id="collapseFutureSkills" class="accordion-collapse collapse" aria-labelledby="headingFutureSkills" 
+                                 data-bs-parent="#accordionEjemplos">
+                                <div class="accordion-body">
+                                    <p class="text-muted">
+                                        Estamos desarrollando nuevas skills para el semillero. ¿Tienes una idea?
+                                        ¡Contribuye al repo!
+                                    </p>
+                                    
+                                    <h6 class="text-gradient mt-3">Ideas en desarrollo</h6>
+                                    <ul class="text-muted">
+                                        <li>🔵 Research Assistant - Revisiones bibliográficas</li>
+                                        <li>🟢 Data Validator - Validación de datasets</li>
+                                        <li>🟡 Paper Summarizer - Resúmenes académicos</li>
+                                    </ul>
+                                    
+                                    <div class="warning-box">
+                                        <h6><i class="bi bi-lightbulb me-2"></i>¿Quieres contribuir?</h6>
+                                        <p>Usa la plantilla en TEMPLATE/ del repo y haz un PR. ¡Todas las contribuciones son bienvenidas!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- COLUMNA DERECHA: CONTENIDO RELACIONADO (20% en md+) -->
+            <div class="col-md-2 col-12">
+                <h4 class="section-title mb-4">Destacado</h4>
+                <div class="card h-100 bg-transparent border-0">
+                    <div class="card-body">
+                        <h5>Tip de IA Responsable</h5>
+                        <p class="text-muted small">
+                            Siempre verifica las fuentes y limita el uso de IA generativa a tareas de apoyo,
+                            nunca como sustituto del pensamiento crítico y la validación experimental.
+                        </p>
+                        <hr>
+                        <h5>Quick Reference</h5>
+                        <p class="text-muted small">
+                            <strong>Claude Code:</strong>~$3-15/M tokens<br>
+                            <strong>Copilot CLI:</strong>Con suscripción<br>
+                            <strong>opencode:</strong>API keys propias<br>
+                            <strong>Ollama:</strong>Gratis (local)
+                        </p>
+                        <hr>
+                        <h5>Recurso de la Semana</h5>
+                        <p class="text-muted small">
+                            <a href="https://modelcontextprotocol.io/docs/getting-started/intro" target="_blank" class="text-muted">
+                                Guía de MCP para investigadores<i class="bi bi-box-arrow-up-right ms-1"></i>
+                            </a><br>
+                            <small class="text-muted">Aprende a conectar bases de datos y herramientas a tu IA</small>
+                        </p>
+                        <hr>
+                        <h5>Comparativa</h5>
+                        <p class="text-muted small">
+                            <strong>🟢 Privacidad:</strong> Ollama<br>
+                            <strong>🟡 Cloud:</strong> Claude/Copilot<br>
+                            <strong>🔵 Flexible:</strong> opencode<br>
+                            <strong>🟣 Integrado:</strong> Copilot CLI
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="site-footer-content">
+                <div class="site-footer-left">
+                    © 2025 INGENIATEC - Corporación Universitaria Americana
+                </div>
+                <div class="site-footer-right">
+                    Diseñado con <i class="bi bi-heart-fill text-danger"></i> por el equipo INGENIATEC
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón scroll to top -->
+    <button class="scroll-to-top" id="scrollTop" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script personalizado -->
+    <script src="js/main.js"></script>
+    <!-- Script para navegación por secciones -->
+    <script>
+        // Función para mostrar una sección específica
+        function showSection(sectionId) {
+            // Ocultar todas las secciones de contenido
+            document.querySelectorAll('section[id]').forEach(section => {
+                section.classList.add('d-none');
+            });
+            
+            // Mostrar la sección objetivo
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('d-none');
+            }
+            
+            // Actualizar estado activo en el menú izquierdo
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            const activeLink = document.querySelector('.nav-link[href="#' + sectionId + '"]');
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            
+            // Scroll al inicio del contenido
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Datos de búsqueda - todos los contenidos indexables
+        const searchData = [
+            { title: 'Claude Code CLI', section: 'tutoriales-ia-cli', content: 'Agente de IA Anthropic para terminal instalación comandos auth login', keywords: 'claude anthropic install' },
+            { title: 'GitHub Copilot CLI', section: 'tutoriales-ia-cli', content: 'Asistente IA GitHub terminal comandos copilot instalación', keywords: 'github copilot install' },
+            { title: 'opencode', section: 'tutoriales-ia-cli', content: 'Agente IA código abierto modelos openai anthropic ollama', keywords: 'open source install agent' },
+            { title: 'ollama', section: 'tutoriales-ia-cli', content: 'Modelos LLM locales privacidad offline instalar run', keywords: 'local offline privacy' },
+            { title: 'MCP - Model Context Protocol', section: 'guias-mcps', content: 'Qué es MCP configuración servidores conectar herramientas', keywords: 'server connect tool' },
+            { title: 'MCPs Populares', section: 'guias-mcps', content: 'GitHub Sentry filesystem memory postgresql brave search', keywords: 'github sentry database' },
+            { title: 'Configurar MCP', section: 'guias-mcps', content: 'Agregar configurar servidor MCP opencode claude code', keywords: 'config add server' },
+            { title: 'Skills en Copilot CLI', section: 'documentacion-skills', content: 'Skills comandos CopilotCLI instalar usar crear', keywords: 'skill command' },
+            { title: 'Skills en Claude Code', section: 'documentacion-skills', content: 'Skills Claude crear usar /skillnombre', keywords: 'skill create' },
+            { title: 'Agentes en opencode', section: 'documentacion-skills', content: 'Agentes opencode crear configurar modelo', keywords: 'agent config model' },
+            { title: 'ArquiProject', section: 'ejemplos-semillero', content: 'Skill metodología proyecto ingeniería mentor evaluador constructor', keywords: 'methodology project' },
+            { title: 'Repositorio Skills', section: 'ejemplos-semillero', content: 'Repo GitHubWorkinnLab Skills contribuir PR', keywords: 'github contribution' }
+        ];
+        
+        // Búsqueda funcional
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            
+            if (query.length < 2) {
+                searchResults.classList.remove('active');
+                return;
+            }
+            
+            // Buscar coincidencias
+            const matches = searchData.filter(item => {
+                return item.title.toLowerCase().includes(query) || 
+                       item.content.toLowerCase().includes(query) ||
+                       item.keywords.toLowerCase().includes(query);
+            });
+            
+            if (matches.length > 0) {
+                // Mostrar resultados (máximo 5)
+                searchResults.innerHTML = matches.slice(0, 5).map(match => `
+                    <div class="search-result-item" onclick="showSection('${match.section}')">
+                        <h6>${match.title}</h6>
+                        <p>${match.content.substring(0, 80)}...</p>
+                    </div>
+                `).join('');
+                searchResults.classList.add('active');
+            } else {
+                searchResults.innerHTML = '<div class="search-result-item"><p>No se encontraron resultados</p></div>';
+                searchResults.classList.add('active');
+            }
+        });
+        
+        // Cerrar búsqueda al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.remove('active');
+            }
+        });
+        
+        // Mostrar sección correspondiente al hacer clic en el menú izquierdo
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                showSection(targetId);
+            });
+        });
+        
+        // Mostrar la sección de inicio por defecto
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('section[id]').forEach(section => {
+                if (section.id !== 'inicio') {
+                    section.classList.add('d-none');
+                }
+            });
+            const inicioLink = document.querySelector('.nav-link[href="#inicio"]');
+            if (inicioLink) {
+                inicioLink.classList.add('active');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -606,54 +606,65 @@
 
     <!-- Sección Galería  -->
     <section id="galeria" class="gallery-section py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5">
+        <div class="container">
+            <div class="text-center mb-4">
                 <div class="section-badge mx-auto">
                     <i class="bi bi-images"></i>
                     <span>Nuestras Actividades</span>
                 </div>
                 <h2 class="section-title">
-                    Galería de <span class="gradient-text">Proyectos</span>
+                    Galería de <span class="gradient-text">Actividades</span>
                 </h2>
                 <p class="text-muted mx-auto" style="max-width: 600px;">
-                    Explora el día a día en nuestro semillero: desde sesiones de ideación y
-                    talleres prácticos hasta el desarrollo de prototipos funcionales y proyectos
-                    de alto impacto.
+                    Explora nuestras instalaciones, conoce a nuestro equipo, descubre nuestros proyectos
+                    y revive los momentos más destacados de INGENIATEC.
                 </p>
             </div>
-            <div class="gallery-grid">
-                <!-- Imagen 1: Reunión -->
-                <div class="gallery-item">
-                    <img src="assets/galeria/reunion1.jpg" alt="Reunión de Semillero IngeniaTEC">
-                    <div class="gallery-item-info">
-                        <h4>Reunión de Planeación</h4>
-                        <p>Equipo IngeniaTEC trabajando en nuevos prototipos.</p>
+            
+            <!-- Carrusel Principal -->
+            <div class="gallery-carousel">
+                <div class="gallery-main-image">
+                    <img id="mainImage" src="assets/galeria/reunion1.jpg" alt="Actividad INGENIATEC">
+                    <div class="gallery-image-info">
+                        <h3 id="mainImageTitle">Sesión de Ideación</h3>
+                        <p id="mainImageDesc">Equipo generando nuevas ideas para proyectos innovadores.</p>
                     </div>
                 </div>
-                <!-- Imagen 2: Robótica -->
-                <div class="gallery-item">
-                    <img src="assets/galeria/robotica.png" alt="Taller de Robótica">
-                    <div class="gallery-item-info">
-                        <h4>Taller de Robótica</h4>
-                        <p>Desarrollo de sistemas autónomos con Arduino y ESP32.</p>
-                    </div>
+                <button class="gallery-arrow prev" onclick="changeSlide(-1)">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="gallery-arrow next" onclick="changeSlide(1)">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+                
+                <!-- Thumbnails -->
+                <div class="gallery-thumbs" id="thumbsContainer">
+                    <!-- Se generan con JS -->
                 </div>
-                <!-- Imagen 3: Impresión 3D -->
-                <div class="gallery-item">
-                    <img src="assets/galeria/impresion3d.png" alt="Laboratorio de Impresión 3D">
-                    <div class="gallery-item-info">
-                        <h4>Prototipado 3D</h4>
-                        <p>Fabricación aditiva de piezas mecánicas complejas.</p>
-                    </div>
+                
+                <!-- Dots -->
+                <div class="gallery-dots" id="dotsContainer">
+                    <!-- Se generan con JS -->
                 </div>
-                <!-- Imagen 4: Software -->
-                <div class="gallery-item">
-                    <img src="assets/galeria/software.png" alt="Desarrollo de Software">
-                    <div class="gallery-item-info">
-                        <h4>Desarrollo de Software</h4>
-                        <p>Creación de aplicaciones y algoritmos innovadores.</p>
-                    </div>
-                </div>
+            </div>
+            
+            <!-- Categorías -->
+            <div class="gallery-categories">
+                <button class="gallery-category-btn active" onclick="filterGallery('all', this)">
+                    Todas
+                </button>
+                <button class="gallery-category-btn" onclick="filterGallery('instalaciones', this)">
+                    Instalaciones
+                </button>
+                <button class="gallery-category-btn" onclick="filterGallery('equipo', this)">
+                    Equipo
+                </button>
+                <button class="gallery-category-btn" onclick="filterGallery('proyectos', this)">
+                    Proyectos
+                </button>
+                <button class="gallery-category-btn" onclick="filterGallery('eventos', this)">
+                    Eventos
+                </button>
             </div>
         </div>
     </section>
@@ -878,7 +889,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h5 class="footer-title">Recursos</h5>
                     <ul class="footer-links">
-                        <li><a href="#">Documentación</a></li>
+                        <li><a href="rincon-ia.html" target="_blank">Rincón IA Responsable</a></li>
                         <li><a href="#">Proyectos</a></li>
                         <li><a href="#">Eventos</a></li>
                         <li><a href="#">Blog</a></li>
@@ -932,6 +943,89 @@
     <script src="js/main.js"></script>
     <!-- Script Terminal Interactiva -->
     <script src="js/terminal.js"></script>
+    <!-- Script Galería Carrusel -->
+    <script>
+        // Datos de la galería
+        const galleryData = [
+            { src: 'assets/galeria/reunion1.jpg', title: 'Sesión de Ideación', desc: 'Equipo generando nuevas ideas para proyectos innovadores.', category: 'equipo' },
+            { src: 'assets/galeria/robotica.png', title: 'Taller de Robótica', desc: 'Desarrollo de sistemas autónomos con Arduino y ESP32.', category: 'proyectos' },
+            { src: 'assets/galeria/impresion3d.png', title: 'Laboratorio 3D', desc: 'Fabricación aditiva de piezas mecánicas complejas.', category: 'proyectos' },
+            { src: 'assets/galeria/software.png', title: 'Desarrollo de Software', desc: 'Creación de aplicaciones y algoritmos innovadores.', category: 'proyectos' }
+        ];
+
+        let currentSlide = 0;
+        let filteredData = [...galleryData];
+
+        // Inicializar galería
+        document.addEventListener('DOMContentLoaded', function() {
+            renderThumbs();
+            renderDots();
+        });
+
+        // Renderizar thumbnails
+        function renderThumbs() {
+            const container = document.getElementById('thumbsContainer');
+            container.innerHTML = filteredData.map((item, index) => `
+                <div class="gallery-thumb ${index === currentSlide ? 'active' : ''}" onclick="goToSlide(${index})">
+                    <img src="${item.src}" alt="${item.title}">
+                </div>
+            `).join('');
+        }
+
+        // Renderizar dots
+        function renderDots() {
+            const container = document.getElementById('dotsContainer');
+            container.innerHTML = filteredData.map((item, index) => `
+                <div class="gallery-dot ${index === currentSlide ? 'active' : ''}" onclick="goToSlide(${index})"></div>
+            `).join('');
+        }
+
+        // Cambiar slide
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = filteredData.length - 1;
+            if (currentSlide >= filteredData.length) currentSlide = 0;
+            updateMainImage();
+        }
+
+        // Ir a slide específico
+        function goToSlide(index) {
+            currentSlide = index;
+            updateMainImage();
+        }
+
+        // Actualizar imagen principal
+        function updateMainImage() {
+            if (filteredData.length === 0) return;
+            
+            const item = filteredData[currentSlide];
+            document.getElementById('mainImage').src = item.src;
+            document.getElementById('mainImageTitle').textContent = item.title;
+            document.getElementById('mainImageDesc').textContent = item.desc;
+            
+            // Actualizar thumbs y dots activos
+            renderThumbs();
+            renderDots();
+        }
+
+        // Filtrar por categoría
+        function filterGallery(category, btn) {
+            // Actualizar botones activos
+            document.querySelectorAll('.gallery-category-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Filtrar datos
+            if (category === 'all') {
+                filteredData = [...galleryData];
+            } else {
+                filteredData = galleryData.filter(item => item.category === category);
+            }
+            
+            // Resetear índice
+            currentSlide = 0;
+            updateMainImage();
+        }
+    </script>
 </body>
 
 </html>
